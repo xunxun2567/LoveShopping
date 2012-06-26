@@ -1,15 +1,16 @@
 //
-//  AppDelegate.h
+//  ViewSwitcher.h
 //  LoveShopping
 //
 //  Created by Lingkai Kong on 12-6-26.
 //  Copyright (c) 2012年 Egibbon Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@class ViewController;
+@interface ViewSwitcher : NSObject
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
++(void)start;
++(void)switchToMain;
 
 @end

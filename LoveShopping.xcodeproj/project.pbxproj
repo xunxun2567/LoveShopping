@@ -13,9 +13,24 @@
 		0503C62F15999A1F000F6945 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0503C62D15999A1F000F6945 /* InfoPlist.strings */; };
 		0503C63115999A1F000F6945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C63015999A1F000F6945 /* main.m */; };
 		0503C63515999A1F000F6945 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C63415999A1F000F6945 /* AppDelegate.m */; };
-		0503C63815999A1F000F6945 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C63715999A1F000F6945 /* ViewController.m */; };
-		0503C63B15999A1F000F6945 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C63915999A1F000F6945 /* ViewController_iPhone.xib */; };
-		0503C63E15999A1F000F6945 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C63C15999A1F000F6945 /* ViewController_iPad.xib */; };
+		0503C64815999A6D000F6945 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0503C64715999A6D000F6945 /* SystemConfiguration.framework */; };
+		0503C64A15999A77000F6945 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0503C64915999A77000F6945 /* CoreData.framework */; };
+		0503C65415999C5F000F6945 /* ViewSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C65315999C5F000F6945 /* ViewSwitcher.m */; };
+		0503C65915999D2A000F6945 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C65815999D2A000F6945 /* API.m */; };
+		0503C67815999ED3000F6945 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0503C67615999ED3000F6945 /* Model.xcdatamodeld */; };
+		0503C67E1599A109000F6945 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C67D1599A109000F6945 /* Shop.m */; };
+		0503C6811599A109000F6945 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6801599A109000F6945 /* Brand.m */; };
+		0503C6841599A109000F6945 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6831599A109000F6945 /* Item.m */; };
+		0503C6881599A517000F6945 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6861599A517000F6945 /* MainViewController.m */; };
+		0503C6891599A517000F6945 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6871599A517000F6945 /* MainViewController.xib */; };
+		0503C68D1599AC74000F6945 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C68B1599AC74000F6945 /* ItemViewController.m */; };
+		0503C68E1599AC74000F6945 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C68C1599AC74000F6945 /* ItemViewController.xib */; };
+		0503C6921599AC82000F6945 /* DesireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6901599AC82000F6945 /* DesireViewController.m */; };
+		0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6911599AC82000F6945 /* DesireViewController.xib */; };
+		0503C6971599AC8D000F6945 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6951599AC8D000F6945 /* SettingViewController.m */; };
+		0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6961599AC8D000F6945 /* SettingViewController.xib */; };
+		0503C69D1599AE4C000F6945 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C69A1599AE4C000F6945 /* JSONKit.m */; };
+		0503C69E1599AE4C000F6945 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C69C1599AE4C000F6945 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +38,41 @@
 		0503C62415999A1F000F6945 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0503C62615999A1F000F6945 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0503C62815999A1F000F6945 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0503C62C15999A1F000F6945 /* LoveShopping-Info.plist */ = {isa = PBXFileReference; path = "LoveShopping-Info.plist"; sourceTree = "<group>"; };
+		0503C62C15999A1F000F6945 /* LoveShopping-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoveShopping-Info.plist"; sourceTree = "<group>"; };
 		0503C62E15999A1F000F6945 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0503C63015999A1F000F6945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0503C63215999A1F000F6945 /* LoveShopping-Prefix.pch */ = {isa = PBXFileReference; path = "LoveShopping-Prefix.pch"; sourceTree = "<group>"; };
-		0503C63315999A1F000F6945 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		0503C63215999A1F000F6945 /* LoveShopping-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoveShopping-Prefix.pch"; sourceTree = "<group>"; };
+		0503C63315999A1F000F6945 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0503C63415999A1F000F6945 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0503C63615999A1F000F6945 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		0503C63715999A1F000F6945 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0503C63A15999A1F000F6945 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		0503C63D15999A1F000F6945 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		0503C64715999A6D000F6945 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0503C64915999A77000F6945 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0503C65215999C5F000F6945 /* ViewSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSwitcher.h; sourceTree = "<group>"; };
+		0503C65315999C5F000F6945 /* ViewSwitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSwitcher.m; sourceTree = "<group>"; };
+		0503C65715999D2A000F6945 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		0503C65815999D2A000F6945 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		0503C67715999ED3000F6945 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0503C67C1599A109000F6945 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		0503C67D1599A109000F6945 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		0503C67F1599A109000F6945 /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brand.h; sourceTree = "<group>"; };
+		0503C6801599A109000F6945 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brand.m; sourceTree = "<group>"; };
+		0503C6821599A109000F6945 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		0503C6831599A109000F6945 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		0503C6851599A517000F6945 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0503C6861599A517000F6945 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		0503C6871599A517000F6945 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		0503C68A1599AC73000F6945 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		0503C68B1599AC74000F6945 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		0503C68C1599AC74000F6945 /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
+		0503C68F1599AC82000F6945 /* DesireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesireViewController.h; sourceTree = "<group>"; };
+		0503C6901599AC82000F6945 /* DesireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesireViewController.m; sourceTree = "<group>"; };
+		0503C6911599AC82000F6945 /* DesireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesireViewController.xib; sourceTree = "<group>"; };
+		0503C6941599AC8D000F6945 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		0503C6951599AC8D000F6945 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		0503C6961599AC8D000F6945 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		0503C6991599AE4C000F6945 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		0503C69A1599AE4C000F6945 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		0503C69B1599AE4C000F6945 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0503C69C1599AE4C000F6945 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0503C64A15999A77000F6945 /* CoreData.framework in Frameworks */,
+				0503C64815999A6D000F6945 /* SystemConfiguration.framework in Frameworks */,
 				0503C62515999A1F000F6945 /* UIKit.framework in Frameworks */,
 				0503C62715999A1F000F6945 /* Foundation.framework in Frameworks */,
 				0503C62915999A1F000F6945 /* CoreGraphics.framework in Frameworks */,
@@ -52,6 +94,8 @@
 		0503C61515999A1F000F6945 = {
 			isa = PBXGroup;
 			children = (
+				0503C64915999A77000F6945 /* CoreData.framework */,
+				0503C64715999A6D000F6945 /* SystemConfiguration.framework */,
 				0503C62A15999A1F000F6945 /* LoveShopping */,
 				0503C62315999A1F000F6945 /* Frameworks */,
 				0503C62115999A1F000F6945 /* Products */,
@@ -79,12 +123,13 @@
 		0503C62A15999A1F000F6945 /* LoveShopping */ = {
 			isa = PBXGroup;
 			children = (
+				0503C64C15999A88000F6945 /* Controller */,
+				0503C64B15999A81000F6945 /* View */,
+				0503C64615999A50000F6945 /* Model */,
+				0503C64515999A47000F6945 /* ThirdParty */,
+				0503C64415999A3F000F6945 /* API */,
 				0503C63315999A1F000F6945 /* AppDelegate.h */,
 				0503C63415999A1F000F6945 /* AppDelegate.m */,
-				0503C63615999A1F000F6945 /* ViewController.h */,
-				0503C63715999A1F000F6945 /* ViewController.m */,
-				0503C63915999A1F000F6945 /* ViewController_iPhone.xib */,
-				0503C63C15999A1F000F6945 /* ViewController_iPad.xib */,
 				0503C62B15999A1F000F6945 /* Supporting Files */,
 			);
 			path = LoveShopping;
@@ -99,6 +144,68 @@
 				0503C63215999A1F000F6945 /* LoveShopping-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0503C64415999A3F000F6945 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0503C65715999D2A000F6945 /* API.h */,
+				0503C65815999D2A000F6945 /* API.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		0503C64515999A47000F6945 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				0503C6991599AE4C000F6945 /* JSONKit.h */,
+				0503C69A1599AE4C000F6945 /* JSONKit.m */,
+				0503C69B1599AE4C000F6945 /* Reachability.h */,
+				0503C69C1599AE4C000F6945 /* Reachability.m */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		0503C64615999A50000F6945 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0503C67615999ED3000F6945 /* Model.xcdatamodeld */,
+				0503C6821599A109000F6945 /* Item.h */,
+				0503C6831599A109000F6945 /* Item.m */,
+				0503C67F1599A109000F6945 /* Brand.h */,
+				0503C6801599A109000F6945 /* Brand.m */,
+				0503C67C1599A109000F6945 /* Shop.h */,
+				0503C67D1599A109000F6945 /* Shop.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0503C64B15999A81000F6945 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0503C64C15999A88000F6945 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0503C65215999C5F000F6945 /* ViewSwitcher.h */,
+				0503C65315999C5F000F6945 /* ViewSwitcher.m */,
+				0503C6851599A517000F6945 /* MainViewController.h */,
+				0503C6861599A517000F6945 /* MainViewController.m */,
+				0503C6871599A517000F6945 /* MainViewController.xib */,
+				0503C68A1599AC73000F6945 /* ItemViewController.h */,
+				0503C68B1599AC74000F6945 /* ItemViewController.m */,
+				0503C68C1599AC74000F6945 /* ItemViewController.xib */,
+				0503C68F1599AC82000F6945 /* DesireViewController.h */,
+				0503C6901599AC82000F6945 /* DesireViewController.m */,
+				0503C6911599AC82000F6945 /* DesireViewController.xib */,
+				0503C6941599AC8D000F6945 /* SettingViewController.h */,
+				0503C6951599AC8D000F6945 /* SettingViewController.m */,
+				0503C6961599AC8D000F6945 /* SettingViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0503C62F15999A1F000F6945 /* InfoPlist.strings in Resources */,
-				0503C63B15999A1F000F6945 /* ViewController_iPhone.xib in Resources */,
-				0503C63E15999A1F000F6945 /* ViewController_iPad.xib in Resources */,
+				0503C6891599A517000F6945 /* MainViewController.xib in Resources */,
+				0503C68E1599AC74000F6945 /* ItemViewController.xib in Resources */,
+				0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */,
+				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +276,18 @@
 			files = (
 				0503C63115999A1F000F6945 /* main.m in Sources */,
 				0503C63515999A1F000F6945 /* AppDelegate.m in Sources */,
-				0503C63815999A1F000F6945 /* ViewController.m in Sources */,
+				0503C65415999C5F000F6945 /* ViewSwitcher.m in Sources */,
+				0503C65915999D2A000F6945 /* API.m in Sources */,
+				0503C67815999ED3000F6945 /* Model.xcdatamodeld in Sources */,
+				0503C67E1599A109000F6945 /* Shop.m in Sources */,
+				0503C6811599A109000F6945 /* Brand.m in Sources */,
+				0503C6841599A109000F6945 /* Item.m in Sources */,
+				0503C6881599A517000F6945 /* MainViewController.m in Sources */,
+				0503C68D1599AC74000F6945 /* ItemViewController.m in Sources */,
+				0503C6921599AC82000F6945 /* DesireViewController.m in Sources */,
+				0503C6971599AC8D000F6945 /* SettingViewController.m in Sources */,
+				0503C69D1599AE4C000F6945 /* JSONKit.m in Sources */,
+				0503C69E1599AE4C000F6945 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,22 +300,6 @@
 				0503C62E15999A1F000F6945 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0503C63915999A1F000F6945 /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0503C63A15999A1F000F6945 /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		0503C63C15999A1F000F6945 /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0503C63D15999A1F000F6945 /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -252,6 +356,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LoveShopping/LoveShopping-Prefix.pch";
 				INFOPLIST_FILE = "LoveShopping/LoveShopping-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -263,6 +368,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LoveShopping/LoveShopping-Prefix.pch";
 				INFOPLIST_FILE = "LoveShopping/LoveShopping-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -289,6 +395,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0503C67615999ED3000F6945 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0503C67715999ED3000F6945 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0503C67715999ED3000F6945 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0503C61715999A1F000F6945 /* Project object */;
 }

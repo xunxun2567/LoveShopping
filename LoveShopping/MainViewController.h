@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  MainViewController.h
 //  LoveShopping
 //
 //  Created by Lingkai Kong on 12-6-26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class ViewController;
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface MainViewController : UIViewController <UITabBarDelegate>
 
 @end

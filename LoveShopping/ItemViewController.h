@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ItemViewController.h
 //  LoveShopping
 //
 //  Created by Lingkai Kong on 12-6-26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ItemViewController : UIViewController
 
 @end
