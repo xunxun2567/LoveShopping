@@ -17,5 +17,7 @@
 @dynamic display_name;
 @dynamic head_index;
 @dynamic total_count;
+@dynamic logo;
+@dynamic index;
 
 @end

@@ -18,5 +18,8 @@
 @property (nonatomic, retain) NSString * display_name;
 @property (nonatomic, retain) NSNumber * head_index;
 @property (nonatomic, retain) NSNumber * total_count;
+@property (nonatomic, retain) NSString * logo;
+@property (nonatomic, retain) NSNumber * index;
+
 
 @end

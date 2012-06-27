@@ -4,6 +4,8 @@
         <attribute name="collector" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="display_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="head_index" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="total_count" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="unread_count" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="visible" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -26,7 +28,7 @@
         <attribute name="collector" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Brand" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Brand" positionX="160" positionY="192" width="128" height="165"/>
         <element name="Item" positionX="160" positionY="192" width="128" height="210"/>
         <element name="Shop" positionX="160" positionY="192" width="128" height="75"/>
     </elements>

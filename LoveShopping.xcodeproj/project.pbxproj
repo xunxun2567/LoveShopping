@@ -32,6 +32,7 @@
 		0530B9DD159AA26100920655 /* BrandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DC159AA26100920655 /* BrandManager.m */; };
 		0530B9E0159AA27C00920655 /* ItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DF159AA27C00920655 /* ItemManager.m */; };
 		0530B9E3159AA28700920655 /* ShopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9E2159AA28700920655 /* ShopManager.m */; };
+		0530B9ED159AEA4100920655 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0530B9EC159AEA4100920655 /* config.plist */; };
 		2B825EB2159AB7BC00763FBA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B825EB0159AB7BC00763FBA /* AboutViewController.m */; };
 		2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B825EB1159AB7BC00763FBA /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		0530B9DF159AA27C00920655 /* ItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemManager.m; sourceTree = "<group>"; };
 		0530B9E1159AA28700920655 /* ShopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopManager.h; sourceTree = "<group>"; };
 		0530B9E2159AA28700920655 /* ShopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopManager.m; sourceTree = "<group>"; };
+		0530B9EC159AEA4100920655 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		2B825EAF159AB7BC00763FBA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		2B825EB0159AB7BC00763FBA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		2B825EB1159AB7BC00763FBA /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				0503C62D15999A1F000F6945 /* InfoPlist.strings */,
 				0503C63015999A1F000F6945 /* main.m */,
 				0503C63215999A1F000F6945 /* LoveShopping-Prefix.pch */,
+				0530B9EC159AEA4100920655 /* config.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */,
 				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
 				2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */,
+				0530B9ED159AEA4100920655 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

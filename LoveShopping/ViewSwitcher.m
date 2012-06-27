@@ -30,7 +30,7 @@ UITabBarController* mainTabBarController;
     mainTabBarController = [[UITabBarController alloc]init];
     
     mainViewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
-    mainViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"浏览" image:nil tag:0];
+    mainViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"新货" image:nil tag:0];
     [mainTabBarController addChildViewController:mainViewController];
     
     settingViewController = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
@@ -55,7 +55,7 @@ UITabBarController* mainTabBarController;
 
 +(void)switchToItem   {
     mainTabBarController.selectedIndex = 0;
-    [UIView beginAnimations:@"flipp" context:nil];
+    [UIView beginAnimations:@"flip1" context:nil];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     

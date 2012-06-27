@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "ViewSwitcher.h"
+#import "UpdateManager.h"
 
 @implementation MainViewController
 

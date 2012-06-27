@@ -8,13 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ViewSwitcher.h"
+#import "UpdateManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UpdateManager defaultManager]start];
     [ViewSwitcher start];
-    
     return YES;
 }
 
