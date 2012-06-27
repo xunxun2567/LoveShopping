@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ViewSwitcher : NSObject
+@interface ViewSwitcher : NSObject <UITabBarControllerDelegate>
 
 +(void)start;
 +(void)switchToMain;

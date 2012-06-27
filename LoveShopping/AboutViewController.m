@@ -1,14 +1,14 @@
 //
-//  MainViewController.m
+//  AboutViewController.m
 //  LoveShopping
 //
-//  Created by Lingkai Kong on 12-6-26.
+//  Created by egibbon on 12-6-27.
 //  Copyright (c) 2012年 Egibbon Inc. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "AboutViewController.h"
 
-@implementation MainViewController
+@implementation AboutViewController
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

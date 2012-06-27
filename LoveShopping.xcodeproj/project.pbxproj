@@ -34,6 +34,8 @@
 		0530B9DD159AA26100920655 /* BrandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DC159AA26100920655 /* BrandManager.m */; };
 		0530B9E0159AA27C00920655 /* ItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DF159AA27C00920655 /* ItemManager.m */; };
 		0530B9E3159AA28700920655 /* ShopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9E2159AA28700920655 /* ShopManager.m */; };
+		2B825EB2159AB7BC00763FBA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B825EB0159AB7BC00763FBA /* AboutViewController.m */; };
+		2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B825EB1159AB7BC00763FBA /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,9 @@
 		0530B9DF159AA27C00920655 /* ItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemManager.m; sourceTree = "<group>"; };
 		0530B9E1159AA28700920655 /* ShopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopManager.h; sourceTree = "<group>"; };
 		0530B9E2159AA28700920655 /* ShopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopManager.m; sourceTree = "<group>"; };
+		2B825EAF159AB7BC00763FBA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		2B825EB0159AB7BC00763FBA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		2B825EB1159AB7BC00763FBA /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +224,9 @@
 				0503C6941599AC8D000F6945 /* SettingViewController.h */,
 				0503C6951599AC8D000F6945 /* SettingViewController.m */,
 				0503C6961599AC8D000F6945 /* SettingViewController.xib */,
+				2B825EAF159AB7BC00763FBA /* AboutViewController.h */,
+				2B825EB0159AB7BC00763FBA /* AboutViewController.m */,
+				2B825EB1159AB7BC00763FBA /* AboutViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 				0503C68E1599AC74000F6945 /* ItemViewController.xib in Resources */,
 				0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */,
 				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
+				2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +315,7 @@
 				0530B9DD159AA26100920655 /* BrandManager.m in Sources */,
 				0530B9E0159AA27C00920655 /* ItemManager.m in Sources */,
 				0530B9E3159AA28700920655 /* ShopManager.m in Sources */,
+				2B825EB2159AB7BC00763FBA /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

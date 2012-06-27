@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "API.h"
 #import "ViewSwitcher.h"
 
 @implementation AppDelegate
