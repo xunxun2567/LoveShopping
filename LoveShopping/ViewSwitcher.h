@@ -11,6 +11,8 @@
 @interface ViewSwitcher : NSObject <UITabBarControllerDelegate>
 
 +(void)start;
-+(void)switchToMain;
+
++(void)switchToItem;
++(void)switchToBrand;
 
 @end

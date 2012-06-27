@@ -10,4 +10,10 @@
 
 @interface MainViewController : UIViewController <UITabBarDelegate>
 
+@property (nonatomic, strong) IBOutlet UIView* brandView;
+@property (nonatomic, strong) IBOutlet UIView* itemView;
+
+-(IBAction)viewItem:(id)sender;
+-(IBAction)viewBrand:(id)sender;
+
 @end

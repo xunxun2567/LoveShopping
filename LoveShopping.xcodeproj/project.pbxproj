@@ -22,8 +22,6 @@
 		0503C6841599A109000F6945 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6831599A109000F6945 /* Item.m */; };
 		0503C6881599A517000F6945 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6861599A517000F6945 /* MainViewController.m */; };
 		0503C6891599A517000F6945 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6871599A517000F6945 /* MainViewController.xib */; };
-		0503C68D1599AC74000F6945 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C68B1599AC74000F6945 /* ItemViewController.m */; };
-		0503C68E1599AC74000F6945 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C68C1599AC74000F6945 /* ItemViewController.xib */; };
 		0503C6921599AC82000F6945 /* DesireViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6901599AC82000F6945 /* DesireViewController.m */; };
 		0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6911599AC82000F6945 /* DesireViewController.xib */; };
 		0503C6971599AC8D000F6945 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6951599AC8D000F6945 /* SettingViewController.m */; };
@@ -63,9 +61,6 @@
 		0503C6851599A517000F6945 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0503C6861599A517000F6945 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0503C6871599A517000F6945 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		0503C68A1599AC73000F6945 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
-		0503C68B1599AC74000F6945 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
-		0503C68C1599AC74000F6945 /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		0503C68F1599AC82000F6945 /* DesireViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesireViewController.h; sourceTree = "<group>"; };
 		0503C6901599AC82000F6945 /* DesireViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesireViewController.m; sourceTree = "<group>"; };
 		0503C6911599AC82000F6945 /* DesireViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesireViewController.xib; sourceTree = "<group>"; };
@@ -215,9 +210,6 @@
 				0503C6851599A517000F6945 /* MainViewController.h */,
 				0503C6861599A517000F6945 /* MainViewController.m */,
 				0503C6871599A517000F6945 /* MainViewController.xib */,
-				0503C68A1599AC73000F6945 /* ItemViewController.h */,
-				0503C68B1599AC74000F6945 /* ItemViewController.m */,
-				0503C68C1599AC74000F6945 /* ItemViewController.xib */,
 				0503C68F1599AC82000F6945 /* DesireViewController.h */,
 				0503C6901599AC82000F6945 /* DesireViewController.m */,
 				0503C6911599AC82000F6945 /* DesireViewController.xib */,
@@ -284,7 +276,6 @@
 			files = (
 				0503C62F15999A1F000F6945 /* InfoPlist.strings in Resources */,
 				0503C6891599A517000F6945 /* MainViewController.xib in Resources */,
-				0503C68E1599AC74000F6945 /* ItemViewController.xib in Resources */,
 				0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */,
 				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
 				2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */,
@@ -306,7 +297,6 @@
 				0503C6811599A109000F6945 /* Brand.m in Sources */,
 				0503C6841599A109000F6945 /* Item.m in Sources */,
 				0503C6881599A517000F6945 /* MainViewController.m in Sources */,
-				0503C68D1599AC74000F6945 /* ItemViewController.m in Sources */,
 				0503C6921599AC82000F6945 /* DesireViewController.m in Sources */,
 				0503C6971599AC8D000F6945 /* SettingViewController.m in Sources */,
 				0503C69D1599AE4C000F6945 /* JSONKit.m in Sources */,

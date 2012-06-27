@@ -7,12 +7,24 @@
 //
 
 #import "MainViewController.h"
+#import "ViewSwitcher.h"
 
 @implementation MainViewController
+
+@synthesize brandView = _brandView;
+@synthesize itemView = _itemView;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+-(IBAction)viewItem:(id)sender    {
+    [ViewSwitcher switchToItem];
+}
+
+-(IBAction)viewBrand:(id)sender    {
+    [ViewSwitcher switchToBrand];
 }
 
 @end

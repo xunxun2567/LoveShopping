@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UpdateManager : NSObject
+@interface UpdateManager : NSObject {
+    //NSString* configFile;
+}
 
 // get the update manager
 +(UpdateManager*)defaultManager;
