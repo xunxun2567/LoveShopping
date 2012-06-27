@@ -16,7 +16,6 @@
 		0503C64815999A6D000F6945 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0503C64715999A6D000F6945 /* SystemConfiguration.framework */; };
 		0503C64A15999A77000F6945 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0503C64915999A77000F6945 /* CoreData.framework */; };
 		0503C65415999C5F000F6945 /* ViewSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C65315999C5F000F6945 /* ViewSwitcher.m */; };
-		0503C65915999D2A000F6945 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C65815999D2A000F6945 /* API.m */; };
 		0503C67815999ED3000F6945 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0503C67615999ED3000F6945 /* Model.xcdatamodeld */; };
 		0503C67E1599A109000F6945 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C67D1599A109000F6945 /* Shop.m */; };
 		0503C6811599A109000F6945 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C6801599A109000F6945 /* Brand.m */; };
@@ -31,6 +30,10 @@
 		0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0503C6961599AC8D000F6945 /* SettingViewController.xib */; };
 		0503C69D1599AE4C000F6945 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C69A1599AE4C000F6945 /* JSONKit.m */; };
 		0503C69E1599AE4C000F6945 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0503C69C1599AE4C000F6945 /* Reachability.m */; };
+		0530B9DA159AA24000920655 /* UpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9D9159AA24000920655 /* UpdateManager.m */; };
+		0530B9DD159AA26100920655 /* BrandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DC159AA26100920655 /* BrandManager.m */; };
+		0530B9E0159AA27C00920655 /* ItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9DF159AA27C00920655 /* ItemManager.m */; };
+		0530B9E3159AA28700920655 /* ShopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9E2159AA28700920655 /* ShopManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +51,6 @@
 		0503C64915999A77000F6945 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0503C65215999C5F000F6945 /* ViewSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSwitcher.h; sourceTree = "<group>"; };
 		0503C65315999C5F000F6945 /* ViewSwitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSwitcher.m; sourceTree = "<group>"; };
-		0503C65715999D2A000F6945 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
-		0503C65815999D2A000F6945 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		0503C67715999ED3000F6945 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		0503C67C1599A109000F6945 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		0503C67D1599A109000F6945 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
@@ -73,6 +74,14 @@
 		0503C69A1599AE4C000F6945 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		0503C69B1599AE4C000F6945 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0503C69C1599AE4C000F6945 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0530B9D8159AA24000920655 /* UpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateManager.h; sourceTree = "<group>"; };
+		0530B9D9159AA24000920655 /* UpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateManager.m; sourceTree = "<group>"; };
+		0530B9DB159AA26100920655 /* BrandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandManager.h; sourceTree = "<group>"; };
+		0530B9DC159AA26100920655 /* BrandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandManager.m; sourceTree = "<group>"; };
+		0530B9DE159AA27C00920655 /* ItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemManager.h; sourceTree = "<group>"; };
+		0530B9DF159AA27C00920655 /* ItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemManager.m; sourceTree = "<group>"; };
+		0530B9E1159AA28700920655 /* ShopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopManager.h; sourceTree = "<group>"; };
+		0530B9E2159AA28700920655 /* ShopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +135,8 @@
 				0503C64C15999A88000F6945 /* Controller */,
 				0503C64B15999A81000F6945 /* View */,
 				0503C64615999A50000F6945 /* Model */,
-				0503C64515999A47000F6945 /* ThirdParty */,
-				0503C64415999A3F000F6945 /* API */,
+				0503C64515999A47000F6945 /* External */,
+				0503C64415999A3F000F6945 /* Backend */,
 				0503C63315999A1F000F6945 /* AppDelegate.h */,
 				0503C63415999A1F000F6945 /* AppDelegate.m */,
 				0503C62B15999A1F000F6945 /* Supporting Files */,
@@ -146,16 +155,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0503C64415999A3F000F6945 /* API */ = {
+		0503C64415999A3F000F6945 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				0503C65715999D2A000F6945 /* API.h */,
-				0503C65815999D2A000F6945 /* API.m */,
+				0530B9D8159AA24000920655 /* UpdateManager.h */,
+				0530B9D9159AA24000920655 /* UpdateManager.m */,
+				0530B9DB159AA26100920655 /* BrandManager.h */,
+				0530B9DC159AA26100920655 /* BrandManager.m */,
+				0530B9DE159AA27C00920655 /* ItemManager.h */,
+				0530B9DF159AA27C00920655 /* ItemManager.m */,
+				0530B9E1159AA28700920655 /* ShopManager.h */,
+				0530B9E2159AA28700920655 /* ShopManager.m */,
 			);
-			name = API;
+			name = Backend;
 			sourceTree = "<group>";
 		};
-		0503C64515999A47000F6945 /* ThirdParty */ = {
+		0503C64515999A47000F6945 /* External */ = {
 			isa = PBXGroup;
 			children = (
 				0503C6991599AE4C000F6945 /* JSONKit.h */,
@@ -163,7 +178,7 @@
 				0503C69B1599AE4C000F6945 /* Reachability.h */,
 				0503C69C1599AE4C000F6945 /* Reachability.m */,
 			);
-			name = ThirdParty;
+			name = External;
 			sourceTree = "<group>";
 		};
 		0503C64615999A50000F6945 /* Model */ = {
@@ -277,7 +292,6 @@
 				0503C63115999A1F000F6945 /* main.m in Sources */,
 				0503C63515999A1F000F6945 /* AppDelegate.m in Sources */,
 				0503C65415999C5F000F6945 /* ViewSwitcher.m in Sources */,
-				0503C65915999D2A000F6945 /* API.m in Sources */,
 				0503C67815999ED3000F6945 /* Model.xcdatamodeld in Sources */,
 				0503C67E1599A109000F6945 /* Shop.m in Sources */,
 				0503C6811599A109000F6945 /* Brand.m in Sources */,
@@ -288,6 +302,10 @@
 				0503C6971599AC8D000F6945 /* SettingViewController.m in Sources */,
 				0503C69D1599AE4C000F6945 /* JSONKit.m in Sources */,
 				0503C69E1599AE4C000F6945 /* Reachability.m in Sources */,
+				0530B9DA159AA24000920655 /* UpdateManager.m in Sources */,
+				0530B9DD159AA26100920655 /* BrandManager.m in Sources */,
+				0530B9E0159AA27C00920655 /* ItemManager.m in Sources */,
+				0530B9E3159AA28700920655 /* ShopManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +411,7 @@
 				0503C64315999A1F000F6945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
