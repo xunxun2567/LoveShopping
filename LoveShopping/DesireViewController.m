@@ -13,6 +13,7 @@
 #import "Item.h"
 #import "ItemManager.h"
 #import "Category.h"
+#import "BrandManager.h"
 
 @interface FavorateItemCell : UITableViewCell {
 }
@@ -41,10 +42,13 @@
     [self.imageView.layer setBorderWidth:1.0];
     [self.imageView.layer setBorderColor:[[UIColor grayColor] CGColor]];
     
-    //   self.brandImageView.image =
-    //   self.itemImageView.image = image;
-    self.priceLabel.text = item.title;
-    self.likeabilityLabel.text = item.time;
+//    self.brandImageView.image = [UIImage imageWithContentsOfFile:[[BrandManager defaultManager] getBrand: item.collector]];
+    
+    NSURL *imageURL = [NSURL URLWithString:item.image_url];
+    self.itemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+    [self.itemImageView setContentMode: UIViewContentModeScaleAspectFit];
+    self.priceLabel.text = item.price;
+    self.likeabilityLabel.text = item.title;
 }
 
 -(IBAction)deleteAction:(id)sender {

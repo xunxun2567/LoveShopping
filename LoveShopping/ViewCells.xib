@@ -56,14 +56,22 @@
 							<object class="IBUIImageView" id="722757691">
 								<reference key="NSNextResponder" ref="220299428"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{40, 0}, {80, 80}}</string>
+								<string key="NSFrame">{{40, 1}, {78, 78}}</string>
 								<reference key="NSSuperview" ref="220299428"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="959417262"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<object class="NSColor" key="IBUIBackgroundColor" id="406788773">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+								</object>
 								<int key="IBUIContentMode">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">logo1.png</string>
+								</object>
 							</object>
 							<object class="IBUILabel" id="959417262">
 								<reference key="NSNextResponder" ref="220299428"/>
@@ -83,10 +91,7 @@
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
-								<object class="NSColor" key="IBUIHighlightedColor" id="406788773">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-								</object>
+								<reference key="IBUIHighlightedColor" ref="406788773"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">10</float>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="190324090">
@@ -686,6 +691,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">logo1.png</string>
+			<string key="NS.object.0">{37, 37}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">1173</string>
 	</data>
 </archive>
