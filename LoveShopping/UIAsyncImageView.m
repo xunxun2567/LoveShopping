@@ -20,7 +20,7 @@
 - (void)dealloc {
 	[connection cancel]; //in case the URL is still downloading
 	[connection release];
-	[data release]; 
+	[data release];
     [super dealloc];
 }
 

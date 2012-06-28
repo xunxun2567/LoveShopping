@@ -49,19 +49,16 @@
     self.brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
     [self.brandImageView setContentMode: UIViewContentModeScaleAspectFit];
 
-    UIAsyncImageView* oldImage = (UIAsyncImageView*) [self.contentView viewWithTag:999];
-	[oldImage removeFromSuperview];
-    UIAsyncImageView* asyncImage = [[[UIAsyncImageView alloc]
-                                   initWithFrame:self.itemImageView.frame] autorelease];
-	asyncImage.tag = 999;
-	[asyncImage loadImageFromURL:[NSURL URLWithString:item.image_url]];
-    [asyncImage.layer setBorderWidth:1.0];
-    [asyncImage.layer setMasksToBounds:YES];
-    [asyncImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
-	[self.contentView addSubview:asyncImage];
-    
-//    self.itemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-//    
+    if ((UIAsyncImageView*) [self.contentView viewWithTag:999] == nil) {
+        UIAsyncImageView* asyncImage = [[[UIAsyncImageView alloc]
+                                     initWithFrame:self.itemImageView.frame] autorelease];
+        asyncImage.tag = 999;
+        [asyncImage loadImageFromURL:[NSURL URLWithString:item.image_url]];
+        [asyncImage.layer setBorderWidth:1.0];
+        [asyncImage.layer setMasksToBounds:YES];
+        [asyncImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        [self.contentView addSubview:asyncImage];
+    }
 
     self.priceLabel.text = item.price;
     self.likeabilityLabel.text = item.title;
