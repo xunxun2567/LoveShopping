@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingViewController : UIViewController
+@interface SettingViewController : UIViewController {
+    NSArray* allBrands;
+}
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DesireViewController : UIViewController
+@interface DesireViewController : UIViewController  {
+    NSArray* desiredItems;
+}
 
 @end

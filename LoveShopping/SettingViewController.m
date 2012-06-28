@@ -7,8 +7,14 @@
 //
 
 #import "SettingViewController.h"
+#import "BrandManager.h"
 
 @implementation SettingViewController
+
+-(void)viewWillAppear:(BOOL)animated    {
+    allBrands = [[BrandManager defaultManager]allBrands];
+    NSLog(@"All Brands: %@", allBrands);
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

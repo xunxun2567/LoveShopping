@@ -7,8 +7,14 @@
 //
 
 #import "DesireViewController.h"
+#import "ItemManager.h"
 
 @implementation DesireViewController
+
+-(void)viewWillAppear:(BOOL)animated    {
+    desiredItems = [[ItemManager defaultManager]desiredItems];
+    NSLog(@"Desired items: %@", desiredItems);
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
