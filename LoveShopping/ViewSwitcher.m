@@ -15,7 +15,7 @@
 @implementation ViewSwitcher
 
 ViewSwitcher* instance;
-
+UITabBarController *tabbar_controller;
 UIWindow* mainWindow;
 MainViewController* mainViewController;
 SettingViewController* settingViewController;
@@ -27,30 +27,47 @@ UITabBarController* mainTabBarController;
 +(void)start    {
     
     mainWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    mainTabBarController = [[UITabBarController alloc]init]; 
-     
+
+    mainTabBarController = [[UITabBarController alloc]init];
+    [mainTabBarController.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar.png"]]];
+    
     mainViewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
-    mainViewController.tabBarItem = [[[UITabBarItem alloc]initWithTitle:@"新货" image:nil tag:0]autorelease];
+    mainViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"更新" image:nil tag:0];
+    [mainViewController.tabBarItem setImage:[UIImage imageNamed:@"logo1.png"]];
     [mainTabBarController addChildViewController:mainViewController];
     
     settingViewController = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
-    settingViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"品牌" image:nil tag:1];
+    settingViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"关注品牌" image:nil tag:1];
+    [settingViewController.tabBarItem setImage:[UIImage imageNamed:@"logo2.png"]];
     [mainTabBarController addChildViewController:settingViewController];
     
     desireViewController = [[DesireViewController alloc]initWithNibName:@"DesireViewController" bundle:nil];
-    desireViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"欲望" image:nil tag:2];
+    desireViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"帮助" image:nil tag:2];
+    [desireViewController.tabBarItem setImage:[UIImage imageNamed:@"logo3.png"]];
     [mainTabBarController addChildViewController:desireViewController];
     
     aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:nil];
-    aboutViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"关于" image:nil tag:3];
+    aboutViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"搜索品牌" image:nil tag:3];
+    [aboutViewController.tabBarItem setImage:[UIImage imageNamed:@"logo4.png"]];
+    
+  //  [mainTabBarController.tabBar setBackgroundColor:[UIColor redColor]];
+
     [mainTabBarController addChildViewController:aboutViewController];
         
     mainWindow.rootViewController = mainTabBarController;
+    
+//    tabbar_controller = [[UITabBarController alloc]init];
+//    [tabbar_controller.tabBar setBackgroundColor:[UIColor redColor]];
+    
+   
+
     
     [mainWindow makeKeyAndVisible];
 
     [ViewSwitcher switchToItem];
     [ViewSwitcher switchToBrand];
+    
+        
 }
 
 +(void)switchToItem   {
