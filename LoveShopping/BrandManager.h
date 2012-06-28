@@ -17,5 +17,6 @@
 -(NSArray*)allBrands;
 -(Brand*)getBrand:(NSString*)collector;
 -(Brand*)getVisibleBrand:(Brand*)brand withOffset:(int)offset;
+-(NSArray*)unreadImagesForBrand:(Brand*)brand;
 
 @end

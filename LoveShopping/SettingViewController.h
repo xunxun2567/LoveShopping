@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingViewController : UIViewController {
+@interface SettingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
     NSArray* allBrands;
 }
 
+@property (strong, nonatomic) IBOutlet UITableView* settingsTableView;
+
+-(IBAction)showMainView:(id)sender;
 @end
