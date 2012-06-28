@@ -124,11 +124,11 @@
     NSArray *allItem = [[ItemManager defaultManager] desiredItems];
     Category *cat1 = [[Category alloc] init];
     cat1.title = @"1";
-    cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 3)];
+    cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 10)];
 //    NSLog(@"cat1.items: %@", cat1.items);
     Category *cat2 = [[Category alloc] init];
     cat2.title = @"2";
-    cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 3)];
+    cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 10)];
 //    NSLog(@"cat2.items: %@", cat2.items);
     self.categorys = [NSArray arrayWithObjects:cat1,cat2,nil];
 }
