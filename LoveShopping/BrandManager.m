@@ -91,4 +91,19 @@ BrandManager* brandManager;
     return [self getVisibleBrand:result withOffset:offset];    
 }
 
+-(NSArray*)unreadImagesForBrand:(Brand*)brand   {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:[self context]];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unread == 1 AND collector == %@", brand.collector];
+    [request setPredicate:predicate];
+    
+    NSArray* results = [[[self context] executeFetchRequest:request error:nil]copy];
+    [request release];
+    
+    return results;
+}
+
+
 @end

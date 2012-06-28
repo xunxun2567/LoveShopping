@@ -90,4 +90,11 @@ UITabBarController* mainTabBarController;
     [UIView commitAnimations];
 }
 
++(void)switchToItemView:(Brand*)brand{
+    if(brand){
+        mainViewController.activeBrand = brand;
+    }
+    [self switchToItem];
+}
+
 @end

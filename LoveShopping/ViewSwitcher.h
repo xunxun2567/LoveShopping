@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Brand.h"
 #import <UIKit/UIKit.h>
 
 @interface ViewSwitcher : NSObject <UITabBarControllerDelegate>
@@ -15,5 +16,6 @@
 
 +(void)switchToItem;
 +(void)switchToBrand;
++(void)switchToItemView:(Brand*)brand;
 
 @end
