@@ -27,10 +27,10 @@ UITabBarController* mainTabBarController;
 +(void)start    {
     
     mainWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    mainTabBarController = [[UITabBarController alloc]init];
-    
+    mainTabBarController = [[UITabBarController alloc]init]; 
+     
     mainViewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
-    mainViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"新货" image:nil tag:0];
+    mainViewController.tabBarItem = [[[UITabBarItem alloc]initWithTitle:@"新货" image:nil tag:0]autorelease];
     [mainTabBarController addChildViewController:mainViewController];
     
     settingViewController = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
@@ -57,8 +57,7 @@ UITabBarController* mainTabBarController;
     mainTabBarController.selectedIndex = 0;
     [UIView beginAnimations:@"flip1" context:nil];
     [UIView setAnimationDuration:0.3];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];    
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:mainViewController.itemView cache:YES];
     mainViewController.view = mainViewController.itemView;
     [UIView commitAnimations];

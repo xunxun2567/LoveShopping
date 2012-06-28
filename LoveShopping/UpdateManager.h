@@ -11,7 +11,6 @@
 
 @interface UpdateManager : NSObject {
     NSURL* serverURL;
-    NSManagedObjectContext* objectContext;
     NSUserDefaults* userDefaults;
     NSOperationQueue* queue;
     NSString* cacheRoot;
@@ -19,9 +18,11 @@
     Reachability* internetReachability;
 }
 
-// get the update manager
+@property (strong, nonatomic) NSManagedObjectContext* objectContext;
+
 +(UpdateManager*)defaultManager;
 
 -(void)start;
+
 
 @end

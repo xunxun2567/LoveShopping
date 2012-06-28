@@ -9,10 +9,13 @@
 #import "UpdateManager.h"
 #import "JSONKit.h"
 #import "Brand.h"
+#import "Item.h"
 #import "Shop.h"
 #import <CoreData/CoreData.h>
 
 @implementation UpdateManager
+
+@synthesize objectContext;
 
 UpdateManager* manager;
 
@@ -71,53 +74,152 @@ UpdateManager* manager;
 }
 
 -(void)start    {
-    if (![self lastUpdate]) {
-        NSLog(@"First run. Loading init config from server...");
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"正在初始化" message:@"请稍后" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
-        [alert show];    
+    if (![userDefaults objectForKey:@"last_config"]) {
+        NSLog(@"First run. Loading init config from server...");  
         
         NSString* requestString = [NSString stringWithFormat:@"http://%@/init_config", serverURL];
         NSURL* url = [NSURL URLWithString:requestString];
         NSLog(@"Reading config from URL: %@", requestString);
         
         NSString* responseText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-        NSMutableArray* array = [responseText mutableObjectFromJSONString];
-        for (NSDictionary* dict in array)   {            
-            Brand* newBrand = [NSEntityDescription insertNewObjectForEntityForName:@"Brand" inManagedObjectContext:objectContext];
-            newBrand.collector = [dict objectForKey:@"collector"];
+        if (responseText)   {        
+            NSMutableArray* array = [responseText mutableObjectFromJSONString];
+            for (NSDictionary* dict in array)   {            
+                Brand* newBrand = [NSEntityDescription insertNewObjectForEntityForName:@"Brand" inManagedObjectContext:objectContext];  
+                newBrand.collector = [dict objectForKey:@"collector"];
             
-            NSString* logoUrlString = [NSString stringWithFormat:@"http://%@/%@", serverURL, [dict objectForKey:@"logo_url"]];
-            NSString* filename = [[documentDirectory path] stringByAppendingPathComponent: newBrand.collector];
-            NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString: logoUrlString]];
+                NSString* logoUrlString = [NSString stringWithFormat:@"http://%@/%@", serverURL, [dict objectForKey:@"logo_url"]];
+                NSString* filename = [[documentDirectory path] stringByAppendingPathComponent: newBrand.collector];
+                NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString: logoUrlString]];
             
-            if (![[NSFileManager defaultManager]createFileAtPath:filename contents:data attributes:nil])    {
-                NSLog(@"Failed to get brand logo!");
-            };
+                if (![[NSFileManager defaultManager]createFileAtPath:filename contents:data attributes:nil])    {
+                    NSLog(@"Failed to get brand logo!");
+                };
             
-            newBrand.logo = filename;
-            newBrand.display_name = [dict objectForKey:@"display_name"];
-            newBrand.unread_count = [NSNumber numberWithInt:0];
-            newBrand.head_index = [NSNumber numberWithInt:0];
-            newBrand.total_count = [NSNumber numberWithInt:0];
-            newBrand.visible = [NSNumber numberWithInt:1];
-            NSLog(@"Brand added: %@", newBrand.display_name);
-            
-            for (NSString* address in [dict objectForKey:@"store_address"]) {
-                NSLog(@"   Shop address: %@", address);
-                Shop* shop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:objectContext];
-                shop.collector = newBrand.collector;
-                shop.address = address;
-            }
-        }
-        [objectContext save:nil];
+                newBrand.logo = filename;
+                newBrand.display_name = [dict objectForKey:@"display_name"];
+                newBrand.unread_count = [NSNumber numberWithInt:0];
+                newBrand.head_index = [NSNumber numberWithInt:0];
+                newBrand.total_count = [NSNumber numberWithInt:0];
+                newBrand.visible = [NSNumber numberWithInt:1];
+                NSLog(@"Brand added: %@", newBrand.display_name);
                 
-        [alert dismissWithClickedButtonIndex:0 animated:YES];
-        [alert release];
+                for (NSString* address in [dict objectForKey:@"store_address"]) {
+                    Shop* shop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:objectContext];
+                    shop.collector = newBrand.collector;
+                    shop.address = address;
+                }
+                NSLog(@"%d Shops added.", [[dict objectForKey:@"store_address"] count]);
+            }
+            if ([objectContext save:nil])   {
+                NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+                [userDefaults setObject:today forKey:@"last_config"];
+                if ([userDefaults synchronize]) {
+                    NSLog(@"Init config successfully!");   
+                    [self update];
+                };
+            }        
+        }
+        else {
+            NSLog(@"Cannot connect to server, fail to start...");
+        }
     }
 }
 
--(NSString*)lastUpdate  {
-    return [userDefaults objectForKey:@"last_update"];
+-(NSString*)makeRequestString   {
+    NSDate* lastUpdate = [userDefaults objectForKey:@"last_update"];
+    
+    NSDateFormatter* format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"YMMddHHmm"];
+    
+    NSString* queryString = @"";
+    NSString* requestString = @"";
+    if (!lastUpdate)  {
+        NSLog(@"last_update not found in NSUserDefaults, this seems to be your first run.");
+        queryString = [@"init=1" copy];
+    }
+    else {
+        queryString = [NSString stringWithFormat:@"prev_update=%@", [format stringFromDate:lastUpdate]];
+    }
+    requestString = [NSString stringWithFormat:@"http://%@/api/?key=timeline&%@", serverURL, queryString];
+    return requestString;
+}
+
+-(void)updateToContext:(NSMutableDictionary*)dict   {    
+    for (NSString* key in [dict allKeys]) {
+        Brand* brand = [self getBrand:key];
+        
+        NSArray* arr = [dict objectForKey:key];
+        NSLog(@"collector: %@, %d objects", key, [arr count]);
+        for (NSDictionary* objectDict in arr)   {  
+            Item* item = (Item*)[NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:objectContext];
+            item.url = [objectDict objectForKey:@"url"];
+            item.image_url = [objectDict objectForKey:@"image_url"];
+            item.image_url2 = [objectDict objectForKey:@"image_url2"];
+            item.price = [objectDict objectForKey:@"price"];
+            item.time = [objectDict objectForKey:@"time"];
+            item.title = [objectDict objectForKey:@"title"];
+            item.leibie = [objectDict objectForKey:@"leibie"];
+            item.unread = [NSNumber numberWithInt:1];
+            item.desire = [NSNumber numberWithInt:0];
+            item.collector = key;
+            
+            brand.unread_count = [NSNumber numberWithInt:[brand.unread_count intValue] + 1];
+            brand.total_count = [NSNumber numberWithInt:[brand.total_count intValue] + 1];
+            
+//            NSInvocationOperation* operation=[[NSInvocationOperation alloc]initWithTarget:self
+//                                                                                  selector:@selector(getImage:)
+//                                                                                    object:item.image_url];
+//            [operationArray addObject:operation];
+        }
+        NSLog(@"Updated: %@ - %@ / %@", brand.display_name, brand.unread_count, brand.total_count);
+    }
+//    [queue setSuspended:YES];
+//    [queue addOperations:operationArray waitUntilFinished:NO];
+//    [operationArray release];
+    //[API checkNetworkStatus:nil];
+    
+    [objectContext save:nil];
+}
+
+-(void)update   {
+    NSLog(@"Starting update.");
+    
+    NSString* requestString = [self makeRequestString];
+    NSLog(@"Query string formed as: %@", requestString);
+    
+    NSURL* url = [NSURL URLWithString:requestString];
+    NSString* responseText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    
+    NSMutableDictionary* dict = [responseText mutableObjectFromJSONString];
+    NSMutableDictionary* content = [dict objectForKey:@"content"];
+    if (content != nil) {
+        [self updateToContext:content];
+        NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+        [userDefaults setObject:today forKey:@"last_update"];
+        [userDefaults synchronize];
+        NSLog(@"Update successful at time: %@", today);
+    }
+    else {
+        NSLog(@"Update failed! cannot connect to server.");
+    }
+}
+
+-(Brand*)getBrand:(NSString*)collector    {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Brand" inManagedObjectContext:objectContext];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"collector == %@", collector];
+    [request setPredicate:predicate];
+    
+    NSMutableArray* mutableFetchResults = [[objectContext executeFetchRequest:request error:nil] mutableCopy];        
+    [request release];    
+    
+    if (mutableFetchResults.count == 0)
+        return nil;
+    else
+        return [mutableFetchResults objectAtIndex:0];
 }
 
 -(void)checkNetworkStatus:(NSNotification *)notice
