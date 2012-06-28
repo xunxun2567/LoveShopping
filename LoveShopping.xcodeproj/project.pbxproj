@@ -55,6 +55,7 @@
 		2B8B6DAA159C4CA400F1A165 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DA9159C4CA400F1A165 /* background.png */; };
 		2B8B6DAD159C4D3A00F1A165 /* light_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DAB159C4D3A00F1A165 /* light_front.png */; };
 		8481A38D159CA8AF00427DD8 /* icon_delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8481A38C159CA8AF00427DD8 /* icon_delete_button.png */; };
+		8481A391159CCA1B00427DD8 /* UIAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481A390159CCA1B00427DD8 /* UIAsyncImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,8 @@
 		2B8B6DA9159C4CA400F1A165 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2B8B6DAB159C4D3A00F1A165 /* light_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_front.png; sourceTree = "<group>"; };
 		8481A38C159CA8AF00427DD8 /* icon_delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_delete_button.png; path = PNG/icon_delete_button.png; sourceTree = "<group>"; };
+		8481A38F159CCA1B00427DD8 /* UIAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAsyncImageView.h; sourceTree = "<group>"; };
+		8481A390159CCA1B00427DD8 /* UIAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAsyncImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 				0503C69A1599AE4C000F6945 /* JSONKit.m */,
 				0503C69B1599AE4C000F6945 /* Reachability.h */,
 				0503C69C1599AE4C000F6945 /* Reachability.m */,
+				8481A38F159CCA1B00427DD8 /* UIAsyncImageView.h */,
+				8481A390159CCA1B00427DD8 /* UIAsyncImageView.m */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				2B770988159C5E4200EA6BF6 /* Category.m in Sources */,
 				2B770989159C5E4200EA6BF6 /* SectionHeaderView.m in Sources */,
 				2B77098A159C5E4200EA6BF6 /* SectionInfo.m in Sources */,
+				8481A391159CCA1B00427DD8 /* UIAsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
