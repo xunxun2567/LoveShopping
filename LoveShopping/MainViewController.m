@@ -34,31 +34,56 @@
     return YES;
 }
 
--(IBAction)viewItem:(id)sender    {
-    [ViewSwitcher switchToItem];
-    activeBrand = [[BrandManager defaultManager]getBrand:@"Forever21Collector"];
-    NSLog(@"Active brand: %@", activeBrand);
-    
-    Item* head = [[ItemManager defaultManager]itemForBrand:activeBrand offsetToHead:0];
-    NSLog(@"Current item: %@", head);
-    
-    Item* prev = [[ItemManager defaultManager]itemForBrand:activeBrand offsetToHead:-1];
-    NSLog(@"Previous item: %@", prev);
-    
-    Item* next = [[ItemManager defaultManager]itemForBrand:activeBrand offsetToHead:1];
-    NSLog(@"Next item: %@", next);
-    
-    Brand* previousBrand = [[BrandManager defaultManager]getVisibleBrand:activeBrand withOffset:-1];
-    NSLog(@"Previous brand: %@", previousBrand);
+-(IBAction)desireTouched:(id)sender {
+    NSLog(@"Desire!");
+}
 
-    Brand* nextBrand = [[BrandManager defaultManager]getVisibleBrand:activeBrand withOffset:1];
-    NSLog(@"Next brand: %@", nextBrand);
+-(IBAction)browseTouched:(id)sender {
+    NSLog(@"Browse!");
+}
+
+-(IBAction)shopTouched:(id)sender   {
+    NSLog(@"Shop!");
+}
+
+-(IBAction)weiboTouched:(id)sender  {
+    NSLog(@"Weibo!");
 }
 
 -(IBAction)viewBrand:(id)sender    {
     [ViewSwitcher switchToBrand];
-    visibleBrands = [[BrandManager defaultManager]allVisibleBrands];
-    NSLog(@"Visible brands: %@", visibleBrands);    
+    
+    for (UIView* view in self.brandScrollView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    visibleBrands = [[BrandManager defaultManager] allVisibleBrands];
+    int row = 0;
+    int column = 0;
+    int page = 0;
+    int width = 80;
+    int height = 80;
+    
+    for (Brand* brand in visibleBrands)    {
+        CGRect rect = CGRectMake(18 + column * (width + 20) + SCREEN_WIDTH * page,
+                                 18 + row * (height + 20), 
+                                 width, height);
+        
+        BrandGadget* brandGadget = [[BrandGadget alloc]initWithFrame:rect];
+        [brandGadget initWithBrand:brand];
+        [self.brandScrollView addSubview:brandGadget];
+        
+        column++;
+        if (column == 3) {
+            row++;
+            column = 0;
+        }
+        if (row == 4)   {
+            row = 0;
+            page++; 
+        }
+        
+    }
 }
 
 -(void)viewDidLoad  {
@@ -98,48 +123,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated    {
-    for (UIView* view in self.brandScrollView.subviews) {
-        [view removeFromSuperview];
-    }
-    
-    visibleBrands = [[BrandManager defaultManager] allVisibleBrands];
-    int row = 0;
-    int column = 0;
-    int page = 0;
-    int width = 80;
-    int height = 80;
-    
-    for (Brand* brand in visibleBrands)    {
-        CGRect rect = CGRectMake(18 + column * (width + 20) + SCREEN_WIDTH * page,
-                                 18 + row * (height + 20), 
-                                 width, height);
-        
-        BrandGadget* brandGadget = [[BrandGadget alloc]initWithFrame:rect];
-        [brandGadget initWithBrand:brand];
-        [self.brandScrollView addSubview:brandGadget];
-        
-        
-        //        UIView *frontView = [[UIView alloc]initWithFrame:rect];
-        //        frontView.backgroundColor = [UIColor grayColor];
-        //        frontView.alpha = 0.3;
-        //        CALayer *brandGadgetLayer = [frontView layer];
-        //        [brandGadgetLayer setMasksToBounds:NO];
-        //        [brandGadgetLayer setCornerRadius:9.5];
-        //        [self.brandScrollView addSubview:frontView];
-        
-        
-        
-        column++;
-        if (column == 3) {
-            row++;
-            column = 0;
-        }
-        if (row == 4)   {
-            row = 0;
-            page++; 
-        }
-        
-    }
+    [self viewBrand:nil];
 }
 
 @end

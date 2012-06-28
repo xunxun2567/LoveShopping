@@ -13,6 +13,7 @@
 #import "Item.h"
 #import "ItemManager.h"
 #import "Category.h"
+#import "BrandManager.h"
 
 @interface FavorateItemCell : UITableViewCell {
 }
@@ -41,10 +42,13 @@
     [self.imageView.layer setBorderWidth:1.0];
     [self.imageView.layer setBorderColor:[[UIColor grayColor] CGColor]];
     
-    //   self.brandImageView.image =
-    //   self.itemImageView.image = image;
-    self.priceLabel.text = item.title;
-    self.likeabilityLabel.text = item.time;
+//    self.brandImageView.image = [UIImage imageWithContentsOfFile:[[BrandManager defaultManager] getBrand: item.collector]];
+    
+    NSURL *imageURL = [NSURL URLWithString:item.image_url];
+    self.itemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+    [self.itemImageView setContentMode: UIViewContentModeScaleAspectFit];
+    self.priceLabel.text = item.price;
+    self.likeabilityLabel.text = item.title;
 }
 
 -(IBAction)deleteAction:(id)sender {
@@ -124,11 +128,11 @@
     NSArray *allItem = [[ItemManager defaultManager] desiredItems];
     Category *cat1 = [[Category alloc] init];
     cat1.title = @"1";
-    cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 3)];
+    cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 10)];
 //    NSLog(@"cat1.items: %@", cat1.items);
     Category *cat2 = [[Category alloc] init];
     cat2.title = @"2";
-    cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 3)];
+    cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 10)];
 //    NSLog(@"cat2.items: %@", cat2.items);
     self.categorys = [NSArray arrayWithObjects:cat1,cat2,nil];
 }

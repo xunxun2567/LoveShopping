@@ -20,7 +20,11 @@
 @property (strong, nonatomic) UIPageControl* pageController;
 @property (strong, nonatomic) Brand* activeBrand;
 
--(IBAction)viewItem:(id)sender;
 -(IBAction)viewBrand:(id)sender;
+
+-(IBAction)desireTouched:(id)sender;
+-(IBAction)browseTouched:(id)sender;
+-(IBAction)shopTouched:(id)sender;
+-(IBAction)weiboTouched:(id)sender;
 
 @end

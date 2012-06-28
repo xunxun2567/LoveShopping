@@ -49,6 +49,7 @@
 //    CGRect *imageRect = [self _makeFitRect:logoImage.size];
     UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:logoRect];
     logoImageView.image = logoImage;
+    [logoImageView setContentMode: UIViewContentModeScaleAspectFit];
     
     //bound a gesture delegate to itemImageView
     logoImageView.userInteractionEnabled = YES;
