@@ -35,7 +35,7 @@
 			</object>
 			<object class="IBUITableViewCell" id="397277124">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">288</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="220299428">
 						<reference key="NSNextResponder" ref="397277124"/>
@@ -47,7 +47,7 @@
 								<string key="NSFrameSize">{40, 80}</string>
 								<reference key="NSSuperview" ref="220299428"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="722757691"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUIContentMode">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -250,7 +250,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 79}</string>
+						<string key="NSFrameSize">{310, 79}</string>
 						<reference key="NSSuperview" ref="397277124"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="220373105"/>
@@ -266,12 +266,14 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 80}</string>
+				<string key="NSFrameSize">{310, 80}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="220299428"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
+				<reference key="IBUIBackgroundColor" ref="406788773"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="220299428"/>
 				<string key="IBUIReuseIdentifier">FavorateItemCellId</string>
 			</object>
@@ -363,7 +365,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 43}</string>
+						<string key="NSFrameSize">{310, 43}</string>
 						<reference key="NSSuperview" ref="144641663"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="30740996"/>
@@ -376,7 +378,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 44}</string>
+				<string key="NSFrameSize">{310, 44}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="825088959"/>
@@ -580,7 +582,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">24</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

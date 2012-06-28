@@ -157,6 +157,17 @@
     return sectionInfo.open ? numStoriesInSection : 0;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    /*
+     Create the section header views lazily.
+     */
+	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
+    if (!sectionInfo.headerView) {
+        sectionInfo.headerView = [[SectionHeaderView alloc] initWithTitle: sectionInfo.category.title section:section delegate:self];
+    }
+    return sectionInfo.headerView.frame.size.height;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     /*
      Create the section header views lazily.
