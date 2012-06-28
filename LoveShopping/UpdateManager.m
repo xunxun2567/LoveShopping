@@ -7,6 +7,8 @@
 //
 
 #import "UpdateManager.h"
+#import "BrandManager.h"
+#import <CommonCrypto/CommonDigest.h>
 #import "JSONKit.h"
 #import "Brand.h"
 #import "Item.h"
@@ -17,13 +19,13 @@
 
 @synthesize objectContext;
 
-UpdateManager* manager;
+UpdateManager* updateManager;
 
 +(UpdateManager*)defaultManager {
-    if (!manager)   {
-        manager = [[UpdateManager alloc]init];
+    if (!updateManager)   {
+        updateManager = [[UpdateManager alloc]init];
     }
-    return manager;
+    return updateManager;
 }
 
 -(id)init   {
@@ -82,6 +84,7 @@ UpdateManager* manager;
         NSLog(@"Reading config from URL: %@", requestString);
         
         NSString* responseText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        int brandIndex = 0;
         if (responseText)   {        
             NSMutableArray* array = [responseText mutableObjectFromJSONString];
             for (NSDictionary* dict in array)   {            
@@ -102,7 +105,9 @@ UpdateManager* manager;
                 newBrand.head_index = [NSNumber numberWithInt:0];
                 newBrand.total_count = [NSNumber numberWithInt:0];
                 newBrand.visible = [NSNumber numberWithInt:1];
+                newBrand.index = [NSNumber numberWithInt:brandIndex];
                 NSLog(@"Brand added: %@", newBrand.display_name);
+                brandIndex++;
                 
                 for (NSString* address in [dict objectForKey:@"store_address"]) {
                     Shop* shop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:objectContext];
@@ -146,8 +151,10 @@ UpdateManager* manager;
 }
 
 -(void)updateToContext:(NSMutableDictionary*)dict   {    
+    NSMutableArray* operationArray = [[NSMutableArray alloc]init];
+    
     for (NSString* key in [dict allKeys]) {
-        Brand* brand = [self getBrand:key];
+        Brand* brand = [[BrandManager defaultManager]getBrand:key];
         
         NSArray* arr = [dict objectForKey:key];
         NSLog(@"collector: %@, %d objects", key, [arr count]);
@@ -167,17 +174,17 @@ UpdateManager* manager;
             brand.unread_count = [NSNumber numberWithInt:[brand.unread_count intValue] + 1];
             brand.total_count = [NSNumber numberWithInt:[brand.total_count intValue] + 1];
             
-//            NSInvocationOperation* operation=[[NSInvocationOperation alloc]initWithTarget:self
-//                                                                                  selector:@selector(getImage:)
-//                                                                                    object:item.image_url];
-//            [operationArray addObject:operation];
+            NSInvocationOperation* operation=[[NSInvocationOperation alloc]initWithTarget:self
+                                                                                  selector:@selector(getImage:)
+                                                                                    object:item.image_url];
+            [operationArray addObject:operation];
         }
         NSLog(@"Updated: %@ - %@ / %@", brand.display_name, brand.unread_count, brand.total_count);
     }
-//    [queue setSuspended:YES];
-//    [queue addOperations:operationArray waitUntilFinished:NO];
-//    [operationArray release];
-    //[API checkNetworkStatus:nil];
+    [queue setSuspended:YES];
+    [queue addOperations:operationArray waitUntilFinished:NO];
+    [operationArray release];
+    [self checkNetworkStatus:nil];
     
     [objectContext save:nil];
 }
@@ -199,28 +206,14 @@ UpdateManager* manager;
         [userDefaults setObject:today forKey:@"last_update"];
         [userDefaults synchronize];
         NSLog(@"Update successful at time: %@", today);
+        [self checkNetworkStatus:nil];
     }
     else {
         NSLog(@"Update failed! cannot connect to server.");
     }
 }
 
--(Brand*)getBrand:(NSString*)collector    {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Brand" inManagedObjectContext:objectContext];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"collector == %@", collector];
-    [request setPredicate:predicate];
-    
-    NSMutableArray* mutableFetchResults = [[objectContext executeFetchRequest:request error:nil] mutableCopy];        
-    [request release];    
-    
-    if (mutableFetchResults.count == 0)
-        return nil;
-    else
-        return [mutableFetchResults objectAtIndex:0];
-}
+
 
 -(void)checkNetworkStatus:(NSNotification *)notice
 {
@@ -237,7 +230,7 @@ UpdateManager* manager;
         case ReachableViaWiFi:
         {
             NSLog(@"The internet is working via WIFI. Queue continued."); 
-            [queue setSuspended:NO];
+            //[queue setSuspended:NO];
             break;
         }
         case ReachableViaWWAN:
@@ -252,6 +245,50 @@ UpdateManager* manager;
 -(void)dealloc  {
     [objectContext release];    
     [super dealloc];
+}
+
+-(NSString*) sha1:(NSString*)input
+{
+    const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:input.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, data.length, digest);
+    
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
+    
+}
+
+-(UIImage*)getImage:(NSString*)imageUrl {
+    if (!imageUrl) {
+        NSLog(@"Empty image url: %@", imageUrl);
+        return nil;
+    }
+    
+    NSString* filename = [cacheRoot stringByAppendingPathComponent: [self sha1:imageUrl]];    
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filename])    {
+        NSLog(@"Image found in cache...");
+        UIImage* image = [UIImage imageWithContentsOfFile:filename];
+        return image;
+    }
+    
+    NSURL* url = [NSURL URLWithString:imageUrl];    
+    NSData* data = [NSData dataWithContentsOfURL:url];
+    if (![manager createFileAtPath:filename contents:data attributes:nil])  {
+        NSLog(@"Failed to create the cache file!");
+        return nil;
+    }
+    
+    NSLog(@"Cached ++.");
+    UIImage* image = [UIImage imageWithData:data];    
+    return image;
 }
 
 @end

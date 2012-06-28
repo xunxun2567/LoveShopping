@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Brand.h"
 
 @interface BrandManager : NSObject
+
++(BrandManager*)defaultManager;
+
+-(NSArray*)allVisibleBrands;
+-(NSArray*)allBrands;
+-(Brand*)getBrand:(NSString*)collector;
 
 @end

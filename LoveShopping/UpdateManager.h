@@ -23,6 +23,6 @@
 +(UpdateManager*)defaultManager;
 
 -(void)start;
-
+-(void)update;
 
 @end

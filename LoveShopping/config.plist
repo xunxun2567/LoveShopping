@@ -5,6 +5,6 @@
 	<key>database_file</key>
 	<string>database.sqlite</string>
 	<key>server_address</key>
-	<string>127.0.0.1:8000</string>
+	<string>192.168.0.31</string>
 </dict>
 </plist>

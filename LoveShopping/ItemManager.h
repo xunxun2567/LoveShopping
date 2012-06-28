@@ -10,4 +10,6 @@
 
 @interface ItemManager : NSObject
 
++(ItemManager*)defaultManager;
+
 @end
