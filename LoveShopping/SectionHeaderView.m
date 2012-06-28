@@ -17,14 +17,14 @@
 @synthesize toggleButton;
 @synthesize delegate;
 
-- (id)initWithTitle:title section:(NSInteger)sectionNumber //delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
+- (id)initWithCollector:collector title:title section:(NSInteger)sectionNumber //delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
 {
     NSArray *headers = [[NSBundle mainBundle] loadNibNamed:@"ViewHeaders" 
                                          owner:self 
                                        options:nil];
     self = [[headers objectAtIndex:0] retain];
     
-    Brand *brand = [[BrandManager defaultManager] getBrand:title];
+    Brand *brand = [[BrandManager defaultManager] getBrand:collector];
     NSLog(@"title: %@, %@", title, brand.logo);
     UIImageView *brandImageView = [[UIImageView alloc] initWithFrame:self.imageView.frame];
     [brandImageView setContentMode: UIViewContentModeScaleAspectFit];

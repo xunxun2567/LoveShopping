@@ -17,7 +17,7 @@
 @property(nonatomic, retain) IBOutlet UIButton*    toggleButton;
 @property(nonatomic) NSInteger section;
 @property (nonatomic, retain) id <SectionHeaderViewDelegate> delegate;
-- (id)initWithTitle:title section:(NSInteger)sectionNumber; //delegate:(id <SectionHeaderViewDelegate>)viewDelegate;
+- (id)initWithCollector:collector title:title section:(NSInteger)sectionNumber; //delegate:(id <SectionHeaderViewDelegate>)viewDelegate;
 -(IBAction)toggleAction:(id)sender; 
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
 @end
