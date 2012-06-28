@@ -44,22 +44,10 @@
 							<object class="IBUIImageView" id="220373105">
 								<reference key="NSNextResponder" ref="220299428"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{40, 80}</string>
+								<string key="NSFrame">{{2, 2}, {40, 76}}</string>
 								<reference key="NSSuperview" ref="220299428"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="722757691"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<int key="IBUIContentMode">1</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							</object>
-							<object class="IBUIImageView" id="722757691">
-								<reference key="NSNextResponder" ref="220299428"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{40, 1}, {78, 78}}</string>
-								<reference key="NSSuperview" ref="220299428"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="959417262"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="406788773">
 									<int key="NSColorSpace">3</int>
@@ -68,10 +56,24 @@
 								<int key="IBUIContentMode">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
+								<object class="NSCustomResource" key="IBUIImage" id="691039411">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">logo1.png</string>
 								</object>
+							</object>
+							<object class="IBUIImageView" id="722757691">
+								<reference key="NSNextResponder" ref="220299428"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{42, 2}, {75, 75}}</string>
+								<reference key="NSSuperview" ref="220299428"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="959417262"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<reference key="IBUIBackgroundColor" ref="406788773"/>
+								<int key="IBUIContentMode">1</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUIImage" ref="691039411"/>
 							</object>
 							<object class="IBUILabel" id="959417262">
 								<reference key="NSNextResponder" ref="220299428"/>

@@ -55,7 +55,7 @@
 					<object class="IBUIImageView" id="197630736">
 						<reference key="NSNextResponder" ref="1050478766"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{24, 30}</string>
+						<string key="NSFrame">{{4, 0}, {30, 30}}</string>
 						<reference key="NSSuperview" ref="1050478766"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="831914430"/>
@@ -66,7 +66,7 @@
 					<object class="IBUILabel" id="831914430">
 						<reference key="NSNextResponder" ref="1050478766"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{38, 4}, {154, 21}}</string>
+						<string key="NSFrame">{{42, 4}, {154, 21}}</string>
 						<reference key="NSSuperview" ref="1050478766"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="409559213"/>
@@ -100,7 +100,6 @@
 						<string key="NSFrame">{{209, 7}, {91, 18}}</string>
 						<reference key="NSSuperview" ref="1050478766"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">1</int>
@@ -147,14 +146,6 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">leibeiImageView</string>
-						<reference key="source" ref="1050478766"/>
-						<reference key="destination" ref="197630736"/>
-					</object>
-					<int key="connectionID">6</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">leibeiLabel</string>
 						<reference key="source" ref="1050478766"/>
 						<reference key="destination" ref="831914430"/>
@@ -170,13 +161,12 @@
 					<int key="connectionID">8</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">toggleAction:</string>
-						<reference key="source" ref="409559213"/>
-						<reference key="destination" ref="1050478766"/>
-						<int key="IBEventType">7</int>
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">imageView</string>
+						<reference key="source" ref="1050478766"/>
+						<reference key="destination" ref="197630736"/>
 					</object>
-					<int key="connectionID">9</int>
+					<int key="connectionID">59</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -202,10 +192,10 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="1050478766"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="197630736"/>
 							<reference ref="15741072"/>
-							<reference ref="831914430"/>
 							<reference ref="409559213"/>
+							<reference ref="197630736"/>
+							<reference ref="831914430"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Section Header View</string>
@@ -247,7 +237,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">58</int>
+			<int key="maxID">59</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -266,13 +256,13 @@
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="leibeiImageView">UIImageView</string>
+						<string key="imageView">UIImageView</string>
 						<string key="leibeiLabel">UILabel</string>
 						<string key="toggleButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="leibeiImageView">
-							<string key="name">leibeiImageView</string>
+						<object class="IBToOneOutletInfo" key="imageView">
+							<string key="name">imageView</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="leibeiLabel">
@@ -296,7 +286,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="bg_section_bar.png">{636, 58}</string>
+			<string key="bg_section_bar.png">{636, 63}</string>
 			<string key="icon_arrow_up.png">{39, 21}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1173</string>
