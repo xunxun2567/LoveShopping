@@ -10,7 +10,7 @@
 #import "SectionHeaderView.h"
 
 @interface DesireViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate> {
+<UITableViewDelegate, UITableViewDataSource> {
 }
 @property(nonatomic,retain) IBOutlet UITableView *favourateTableView;
 @property (nonatomic, retain) NSArray* categorys;

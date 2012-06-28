@@ -7,23 +7,34 @@
 //
 
 #import "SectionHeaderView.h"
+#import "BrandManager.h"
+#import "BrandGadget.h"
 
 @implementation SectionHeaderView
 @synthesize leibeiLabel;
-@synthesize leibeiImageView;
+@synthesize imageView;
 @synthesize section;
 @synthesize toggleButton;
 @synthesize delegate;
 
-- (id)initWithTitle:title section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
+- (id)initWithTitle:title section:(NSInteger)sectionNumber //delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
 {
     NSArray *headers = [[NSBundle mainBundle] loadNibNamed:@"ViewHeaders" 
                                          owner:self 
                                        options:nil];
     self = [[headers objectAtIndex:0] retain];
+    
+    Brand *brand = [[BrandManager defaultManager] getBrand:title];
+    NSLog(@"title: %@, %@", title, brand.logo);
+    UIImageView *brandImageView = [[UIImageView alloc] initWithFrame:self.imageView.frame];
+    [brandImageView setContentMode: UIViewContentModeScaleAspectFit];
+    brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
+    self.imageView = brandImageView;
+    [brandImageView release];
+    
     self.leibeiLabel.text = title;
     self.section = sectionNumber;
-    self.delegate = viewDelegate;
+   // self.delegate = viewDelegate;
     return self;
 }
 
