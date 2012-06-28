@@ -17,21 +17,16 @@
 @synthesize toggleButton;
 @synthesize delegate;
 
-- (id)initWithTitle:title section:(NSInteger)sectionNumber //delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
+- (id)initWithCollector:collector title:title section:(NSInteger)sectionNumber //delegate:(id <SectionHeaderViewDelegate>)viewDelegate 
 {
     NSArray *headers = [[NSBundle mainBundle] loadNibNamed:@"ViewHeaders" 
                                          owner:self 
                                        options:nil];
     self = [[headers objectAtIndex:0] retain];
     
-    Brand *brand = [[BrandManager defaultManager] getBrand:title];
-    NSLog(@"title: %@, %@", title, brand.logo);
-    UIImageView *brandImageView = [[UIImageView alloc] initWithFrame:self.imageView.frame];
-    [brandImageView setContentMode: UIViewContentModeScaleAspectFit];
-    brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
-    self.imageView = brandImageView;
-    [brandImageView release];
-    
+    Brand *brand = [[BrandManager defaultManager] getBrand:collector];
+    self.imageView.image = [UIImage imageWithContentsOfFile:brand.logo];
+    [self.imageView setContentMode: UIViewContentModeScaleAspectFit];
     self.leibeiLabel.text = title;
     self.section = sectionNumber;
    // self.delegate = viewDelegate;

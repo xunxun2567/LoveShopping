@@ -129,14 +129,18 @@
 -(void) searchForCategorys {
     NSArray *allItem = [[ItemManager defaultManager] desiredItems];
     Category *cat1 = [[Category alloc] init];
-   
+    
     cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 10)];
-    cat1.title = ((Item *)[cat1.items objectAtIndex:0]).collector;
+    Item *item1 = (Item *)[cat1.items objectAtIndex:0];
+    cat1.collector = item1.collector;
+    cat1.title =  [[BrandManager defaultManager] getBrand: item1.collector].display_name;
 //    NSLog(@"cat1.items: %@", cat1.items);
     Category *cat2 = [[Category alloc] init];
-    cat2.title = @"2";
     cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 10)];
-    cat2.title = ((Item *)[cat2.items objectAtIndex:0]).collector;
+    Item *item2 = (Item *)[cat2.items objectAtIndex:0];
+    cat2.collector = item2.collector;
+    cat2.title =  [[BrandManager defaultManager] getBrand: item2.collector].display_name;
+    
 //    NSLog(@"cat2.items: %@", cat2.items);
     self.categorys = [NSArray arrayWithObjects:cat1,cat2,nil];
 }
@@ -171,10 +175,18 @@
      */
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     if (!sectionInfo.headerView) {
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithTitle: sectionInfo.category.title section:section]; //delegate:self];
+        sectionInfo.headerView = [[SectionHeaderView alloc] initWithCollector: sectionInfo.category.collector title: sectionInfo.category.title section:section]; //delegate:self];
     }
     return sectionInfo.headerView.frame.size.height;
 }
+
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+//    NSMutableArray *indexArray = [NSMutableArray arrayWithCapacity:[self.sectionInfoArray count]];
+//    for (SectionInfo *sectionInfo in self.sectionInfoArray) {
+//         [indexArray addObject:sectionInfo.category.title];
+//    }
+//    return indexArray;
+//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     /*
@@ -182,7 +194,7 @@
      */
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     if (!sectionInfo.headerView) {
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithTitle: sectionInfo.category.title section:section]; //delegate:self];
+         sectionInfo.headerView = [[SectionHeaderView alloc] initWithCollector: sectionInfo.category.collector title: sectionInfo.category.title section:section]; //delegate:self];
     }
     return sectionInfo.headerView;
 }
