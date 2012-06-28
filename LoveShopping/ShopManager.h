@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Brand.h"
 
 @interface ShopManager : NSObject
+
++(ShopManager*)defaultManager;
+
+-(NSArray*)shopsForBrand:(Brand*)brand;
 
 @end

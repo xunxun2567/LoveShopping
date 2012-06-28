@@ -32,7 +32,7 @@ ItemManager* itemManager;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:[self context]];
     [request setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"brand == %@", brand.collector];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"collector == %@", brand.collector];
     [request setPredicate:predicate];
     
     NSArray* results = [[[self context] executeFetchRequest:request error:nil]copy];
@@ -44,6 +44,20 @@ ItemManager* itemManager;
     if (index >= [results count] - 1) return nil;
     
     return [results objectAtIndex:index];
+}
+
+-(NSArray*)desiredItems {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:[self context]];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"desire > 0"];
+    [request setPredicate:predicate];
+    
+    NSArray* results = [[[self context] executeFetchRequest:request error:nil]copy];
+    [request release];
+    
+    return results;
 }
 
 @end
