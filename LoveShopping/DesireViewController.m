@@ -180,13 +180,13 @@
     return sectionInfo.headerView.frame.size.height;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    NSMutableArray *indexArray = [NSMutableArray arrayWithCapacity:[self.sectionInfoArray count]];
-    for (SectionInfo *sectionInfo in self.sectionInfoArray) {
-         [indexArray addObject:sectionInfo.category.title];
-    }
-    return indexArray;
-}
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+//    NSMutableArray *indexArray = [NSMutableArray arrayWithCapacity:[self.sectionInfoArray count]];
+//    for (SectionInfo *sectionInfo in self.sectionInfoArray) {
+//         [indexArray addObject:sectionInfo.category.title];
+//    }
+//    return indexArray;
+//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     /*

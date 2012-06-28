@@ -25,13 +25,8 @@
     self = [[headers objectAtIndex:0] retain];
     
     Brand *brand = [[BrandManager defaultManager] getBrand:collector];
-    NSLog(@"title: %@, %@", title, brand.logo);
-    UIImageView *brandImageView = [[UIImageView alloc] initWithFrame:self.imageView.frame];
-    [brandImageView setContentMode: UIViewContentModeScaleAspectFit];
-    brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
-    self.imageView = brandImageView;
-    [brandImageView release];
-    
+    self.imageView.image = [UIImage imageWithContentsOfFile:brand.logo];
+    [self.imageView setContentMode: UIViewContentModeScaleAspectFit];
     self.leibeiLabel.text = title;
     self.section = sectionNumber;
    // self.delegate = viewDelegate;
