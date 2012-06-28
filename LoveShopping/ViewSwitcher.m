@@ -70,16 +70,6 @@ UITabBarController* mainTabBarController;
         
 }
 
-+(void)switchToItem   {
-    mainTabBarController.selectedIndex = 0;
-    [UIView beginAnimations:@"flip1" context:nil];
-    [UIView setAnimationDuration:0.3];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];    
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:mainViewController.itemView cache:YES];
-    mainViewController.view = mainViewController.itemView;
-    [UIView commitAnimations];
-}
-
 +(void)switchToBrand   {
     mainTabBarController.selectedIndex = 0;
     [UIView beginAnimations:@"flip2" context:nil];
@@ -94,7 +84,12 @@ UITabBarController* mainTabBarController;
     if(brand){
         mainViewController.activeBrand = brand;
     }
-    [self switchToItem];
-}
+    mainTabBarController.selectedIndex = 0;
+    [UIView beginAnimations:@"flip1" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];    
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:mainViewController.itemView cache:YES];
+    mainViewController.view = mainViewController.itemView;
+    [UIView commitAnimations];}
 
 @end

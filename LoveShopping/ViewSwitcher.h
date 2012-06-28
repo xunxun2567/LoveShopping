@@ -14,7 +14,6 @@
 
 +(void)start;
 
-+(void)switchToItem;
 +(void)switchToBrand;
 +(void)switchToItemView:(Brand*)brand;
 
