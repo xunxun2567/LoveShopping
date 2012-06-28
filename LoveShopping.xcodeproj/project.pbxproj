@@ -47,10 +47,6 @@
 		2B77098C159C5E4200EA6BF6 /* ViewHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B770987159C5E4200EA6BF6 /* ViewHeaders.xib */; };
 		2B825EB2159AB7BC00763FBA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B825EB0159AB7BC00763FBA /* AboutViewController.m */; };
 		2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B825EB1159AB7BC00763FBA /* AboutViewController.xib */; };
-		2B8B6DA2159C310400F1A165 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6D9E159C310400F1A165 /* off.png */; };
-		2B8B6DA3159C310400F1A165 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6D9F159C310400F1A165 /* on.png */; };
-		2B8B6DA4159C310400F1A165 /* red_count.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DA0159C310400F1A165 /* red_count.png */; };
-		2B8B6DA5159C310400F1A165 /* red_head.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DA1159C310400F1A165 /* red_head.png */; };
 		2B8B6DA8159C346C00F1A165 /* BrandGadget.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B6DA7159C346C00F1A165 /* BrandGadget.m */; };
 		2B8B6DAA159C4CA400F1A165 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DA9159C4CA400F1A165 /* background.png */; };
 		2B8B6DAD159C4D3A00F1A165 /* light_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B6DAB159C4D3A00F1A165 /* light_front.png */; };
@@ -118,10 +114,6 @@
 		2B825EAF159AB7BC00763FBA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		2B825EB0159AB7BC00763FBA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		2B825EB1159AB7BC00763FBA /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		2B8B6D9E159C310400F1A165 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../../newShopping/ShoppingMaster/ShoppingMaster/off.png; sourceTree = "<group>"; };
-		2B8B6D9F159C310400F1A165 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = ../../newShopping/ShoppingMaster/ShoppingMaster/on.png; sourceTree = "<group>"; };
-		2B8B6DA0159C310400F1A165 /* red_count.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_count.png; path = ../../newShopping/ShoppingMaster/ShoppingMaster/red_count.png; sourceTree = "<group>"; };
-		2B8B6DA1159C310400F1A165 /* red_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_head.png; path = ../../newShopping/ShoppingMaster/ShoppingMaster/red_head.png; sourceTree = "<group>"; };
 		2B8B6DA6159C346C00F1A165 /* BrandGadget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandGadget.h; sourceTree = "<group>"; };
 		2B8B6DA7159C346C00F1A165 /* BrandGadget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandGadget.m; sourceTree = "<group>"; };
 		2B8B6DA9159C4CA400F1A165 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -291,10 +283,6 @@
 				2B770977159C5E0D00EA6BF6 /* tabbar.png */,
 				2B8B6DAB159C4D3A00F1A165 /* light_front.png */,
 				2B8B6DA9159C4CA400F1A165 /* background.png */,
-				2B8B6D9E159C310400F1A165 /* off.png */,
-				2B8B6D9F159C310400F1A165 /* on.png */,
-				2B8B6DA0159C310400F1A165 /* red_count.png */,
-				2B8B6DA1159C310400F1A165 /* red_head.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -356,10 +344,6 @@
 				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
 				2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */,
 				0530B9ED159AEA4100920655 /* config.plist in Resources */,
-				2B8B6DA2159C310400F1A165 /* off.png in Resources */,
-				2B8B6DA3159C310400F1A165 /* on.png in Resources */,
-				2B8B6DA4159C310400F1A165 /* red_count.png in Resources */,
-				2B8B6DA5159C310400F1A165 /* red_head.png in Resources */,
 				2B8B6DAA159C4CA400F1A165 /* background.png in Resources */,
 				2B8B6DAD159C4D3A00F1A165 /* light_front.png in Resources */,
 				2B770978159C5E0D00EA6BF6 /* bg_section_bar.png in Resources */,
