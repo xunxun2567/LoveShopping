@@ -64,7 +64,7 @@ UITabBarController* mainTabBarController;
     
     [mainWindow makeKeyAndVisible];
 
-    [ViewSwitcher switchToItem];
+    [ViewSwitcher switchToItemView:nil];
     [ViewSwitcher switchToBrand];
     
         
