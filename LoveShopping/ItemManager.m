@@ -51,7 +51,7 @@ ItemManager* itemManager;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:[self context]];
     [request setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"desire > 0"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"desire = 0"];
     [request setPredicate:predicate];
     
     NSArray* results = [[[self context] executeFetchRequest:request error:nil]copy];
