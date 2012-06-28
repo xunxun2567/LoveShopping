@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
+#import "Brand.h"
 
 @interface ItemManager : NSObject
+
++(ItemManager*)defaultManager;
+
+-(NSArray*)desiredItems;
+-(Item*)itemForBrand:(Brand*)brand offsetToHead:(int)offset;
 
 @end

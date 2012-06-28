@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface UpdateManager : NSObject {
-    //NSString* configFile;
+    NSURL* serverURL;
+    NSUserDefaults* userDefaults;
+    NSOperationQueue* queue;
+    NSString* cacheRoot;
+    NSURL* documentDirectory;
+    Reachability* internetReachability;
 }
 
-// get the update manager
+@property (strong, nonatomic) NSManagedObjectContext* objectContext;
+
 +(UpdateManager*)defaultManager;
+
+-(void)start;
+-(void)update;
 
 @end

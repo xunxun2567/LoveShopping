@@ -27,23 +27,12 @@ UITabBarController* mainTabBarController;
 +(void)start    {
     
     mainWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     mainTabBarController = [[UITabBarController alloc]init];
     [mainTabBarController.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar.png"]]];
     
-
-    
-//    [mainTabBarController.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-//                                              [UIFont fontWithName:@"AmericanTypewriter" size:20.0f], UITextAttributeFont,
-//                                              [UIColor blackColor], UITextAttributeTextColor,
-//                                              [UIColor grayColor], UITextAttributeTextShadowColor,
-//                                              [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
-//                                              nil]];
-
-  //  [mainTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"test5.png"]];//
-    
     mainViewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
     mainViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"更新" image:nil tag:0];
-
     [mainViewController.tabBarItem setImage:[UIImage imageNamed:@"logo1.png"]];
     [mainTabBarController addChildViewController:mainViewController];
     
@@ -83,10 +72,9 @@ UITabBarController* mainTabBarController;
 
 +(void)switchToItem   {
     mainTabBarController.selectedIndex = 0;
-    [UIView beginAnimations:@"flipp" context:nil];
+    [UIView beginAnimations:@"flip1" context:nil];
     [UIView setAnimationDuration:0.3];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];    
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:mainViewController.itemView cache:YES];
     mainViewController.view = mainViewController.itemView;
     [UIView commitAnimations];

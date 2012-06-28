@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Brand.h"
 
-@interface MainViewController : UIViewController <UITabBarDelegate>
+@interface MainViewController : UIViewController <UITabBarDelegate> {
+    NSArray* visibleBrands;
+    Brand* activeBrand;
+}
 
 @property (nonatomic, strong) IBOutlet UIView* brandView;
 @property (nonatomic, strong) IBOutlet UIView* itemView;

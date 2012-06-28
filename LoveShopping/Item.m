@@ -18,7 +18,6 @@
 @dynamic price;
 @dynamic leibie;
 @dynamic image_url;
-@dynamic desire_time;
 @dynamic desire;
 @dynamic image_url2;
 @dynamic collector;
