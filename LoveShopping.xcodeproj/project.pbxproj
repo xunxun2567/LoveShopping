@@ -34,6 +34,11 @@
 		0530B9E3159AA28700920655 /* ShopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0530B9E2159AA28700920655 /* ShopManager.m */; };
 		2B825EB2159AB7BC00763FBA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B825EB0159AB7BC00763FBA /* AboutViewController.m */; };
 		2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B825EB1159AB7BC00763FBA /* AboutViewController.xib */; };
+		2BD0ACAB159C18C70029D47E /* logo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0ACAA159C18C70029D47E /* logo3.png */; };
+		2BD0ACAD159C195D0029D47E /* logo4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0ACAC159C195D0029D47E /* logo4.png */; };
+		2BD0ACAF159C245D0029D47E /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0ACAE159C245C0029D47E /* logo1.png */; };
+		2BD0ACB5159C27B90029D47E /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0ACB4159C27B90029D47E /* logo2.png */; };
+		2BD0ACB7159C4B300029D47E /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD0ACB6159C4B300029D47E /* tabbar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +87,11 @@
 		2B825EAF159AB7BC00763FBA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		2B825EB0159AB7BC00763FBA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		2B825EB1159AB7BC00763FBA /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		2BD0ACAA159C18C70029D47E /* logo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo3.png; sourceTree = "<group>"; };
+		2BD0ACAC159C195D0029D47E /* logo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo4.png; sourceTree = "<group>"; };
+		2BD0ACAE159C245C0029D47E /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
+		2BD0ACB4159C27B90029D47E /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
+		2BD0ACB6159C4B300029D47E /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,11 @@
 		0503C62B15999A1F000F6945 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2BD0ACB6159C4B300029D47E /* tabbar.png */,
+				2BD0ACB4159C27B90029D47E /* logo2.png */,
+				2BD0ACAE159C245C0029D47E /* logo1.png */,
+				2BD0ACAC159C195D0029D47E /* logo4.png */,
+				2BD0ACAA159C18C70029D47E /* logo3.png */,
 				0503C62C15999A1F000F6945 /* LoveShopping-Info.plist */,
 				0503C62D15999A1F000F6945 /* InfoPlist.strings */,
 				0503C63015999A1F000F6945 /* main.m */,
@@ -279,6 +294,11 @@
 				0503C6931599AC82000F6945 /* DesireViewController.xib in Resources */,
 				0503C6981599AC8D000F6945 /* SettingViewController.xib in Resources */,
 				2B825EB3159AB7BC00763FBA /* AboutViewController.xib in Resources */,
+				2BD0ACAB159C18C70029D47E /* logo3.png in Resources */,
+				2BD0ACAD159C195D0029D47E /* logo4.png in Resources */,
+				2BD0ACAF159C245D0029D47E /* logo1.png in Resources */,
+				2BD0ACB5159C27B90029D47E /* logo2.png in Resources */,
+				2BD0ACB7159C4B300029D47E /* tabbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
