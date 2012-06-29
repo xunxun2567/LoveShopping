@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "BrandManager.h"
+#import "UpdateManager.h"
 #import "ViewSwitcher.h"
 #import "BrandGadget.h"
 
@@ -93,6 +94,8 @@
     
     Brand* brand = [allBrands objectAtIndex:button.tag];
     brand.visible = brand.visible.intValue == 1 ? [NSNumber numberWithInt:0] : [NSNumber numberWithInt:1];
+    [[UpdateManager defaultManager].objectContext save:nil];
+
     NSLog(@"Brand changed for %@ to: %@", brand.display_name, brand.visible);
     
     if(brand.visible.intValue == 1) {
