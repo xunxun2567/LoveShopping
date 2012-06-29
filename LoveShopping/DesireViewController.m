@@ -14,6 +14,8 @@
 #import "ItemManager.h"
 #import "Category.h"
 #import "BrandManager.h"
+#import "BrandGadget.h"
+#import "UIAsyncImageView.h"
 
 @interface FavorateItemCell : UITableViewCell {
 }
@@ -39,14 +41,25 @@
 -(void)parseFromItem:(Item *) item {
     [self.likeabilityLabel.layer setCornerRadius:6.0];
     [self.likeabilityLabel setClipsToBounds:YES];
-    [self.imageView.layer setBorderWidth:1.0];
-    [self.imageView.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.itemImageView.layer setBorderWidth:1.0];
+    [self.itemImageView.layer setMasksToBounds:YES];
+    [self.itemImageView.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
     
-//    self.brandImageView.image = [UIImage imageWithContentsOfFile:[[BrandManager defaultManager] getBrand: item.collector]];
-    
-    NSURL *imageURL = [NSURL URLWithString:item.image_url];
-    self.itemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-    [self.itemImageView setContentMode: UIViewContentModeScaleAspectFit];
+    Brand *brand = [[BrandManager defaultManager] getBrand:item.collector];    
+    self.brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
+    [self.brandImageView setContentMode: UIViewContentModeScaleAspectFit];
+
+    if ((UIAsyncImageView*) [self.contentView viewWithTag:999] == nil) {
+        UIAsyncImageView* asyncImage = [[[UIAsyncImageView alloc]
+                                     initWithFrame:self.itemImageView.frame] autorelease];
+        asyncImage.tag = 999;
+        [asyncImage loadImageFromURL:[NSURL URLWithString:item.image_url]];
+        [asyncImage.layer setBorderWidth:1.0];
+        [asyncImage.layer setMasksToBounds:YES];
+        [asyncImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        [self.contentView addSubview:asyncImage];
+    }
+
     self.priceLabel.text = item.price;
     self.likeabilityLabel.text = item.title;
 }
@@ -76,22 +89,18 @@
 
 @interface DesireViewController ()
 @property (nonatomic, retain) NSMutableArray* sectionInfoArray;
-@property (nonatomic, assign) NSInteger openSectionIndex;
 -(void)searchForCategorys;
 @end
 
 @implementation DesireViewController
 @synthesize favourateTableView;
 @synthesize sectionInfoArray;
-@synthesize openSectionIndex = _openSectionIndex;
 @synthesize categorys;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    _openSectionIndex = NSNotFound;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -127,12 +136,18 @@
 -(void) searchForCategorys {
     NSArray *allItem = [[ItemManager defaultManager] desiredItems];
     Category *cat1 = [[Category alloc] init];
-    cat1.title = @"1";
+    
     cat1.items = [allItem subarrayWithRange:NSMakeRange(0, 10)];
+    Item *item1 = (Item *)[cat1.items objectAtIndex:0];
+    cat1.collector = item1.collector;
+    cat1.title =  [[BrandManager defaultManager] getBrand: item1.collector].display_name;
 //    NSLog(@"cat1.items: %@", cat1.items);
     Category *cat2 = [[Category alloc] init];
-    cat2.title = @"2";
     cat2.items = [allItem subarrayWithRange:NSMakeRange(4, 10)];
+    Item *item2 = (Item *)[cat2.items objectAtIndex:0];
+    cat2.collector = item2.collector;
+    cat2.title =  [[BrandManager defaultManager] getBrand: item2.collector].display_name;
+    
 //    NSLog(@"cat2.items: %@", cat2.items);
     self.categorys = [NSArray arrayWithObjects:cat1,cat2,nil];
 }
@@ -158,7 +173,7 @@
     SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
 	NSInteger numStoriesInSection = [[sectionInfo.category items] count];
 	
-    return sectionInfo.open ? numStoriesInSection : 0;
+    return  numStoriesInSection;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -167,10 +182,18 @@
      */
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     if (!sectionInfo.headerView) {
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithTitle: sectionInfo.category.title section:section delegate:self];
+        sectionInfo.headerView = [[SectionHeaderView alloc] initWithCollector: sectionInfo.category.collector title: sectionInfo.category.title section:section]; //delegate:self];
     }
     return sectionInfo.headerView.frame.size.height;
 }
+
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+//    NSMutableArray *indexArray = [NSMutableArray arrayWithCapacity:[self.sectionInfoArray count]];
+//    for (SectionInfo *sectionInfo in self.sectionInfoArray) {
+//         [indexArray addObject:sectionInfo.category.title];
+//    }
+//    return indexArray;
+//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     /*
@@ -178,7 +201,7 @@
      */
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     if (!sectionInfo.headerView) {
-        sectionInfo.headerView = [[SectionHeaderView alloc] initWithTitle: sectionInfo.category.title section:section delegate:self];
+         sectionInfo.headerView = [[SectionHeaderView alloc] initWithCollector: sectionInfo.category.collector title: sectionInfo.category.title section:section]; //delegate:self];
     }
     return sectionInfo.headerView;
 }
@@ -209,82 +232,5 @@
     
     return cell;
 }
-
-#pragma mark Section header delegate
-
--(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
-	
-	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:sectionOpened];
-	
-	sectionInfo.open = YES;
-    
-    /*
-     Create an array containing the index paths of the rows to insert: These correspond to the rows for each quotation in the current section.
-     */
-    NSInteger countOfRowsToInsert = [sectionInfo.category.items count];
-    NSMutableArray *indexPathsToInsert = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < countOfRowsToInsert; i++) {
-        [indexPathsToInsert addObject:[NSIndexPath indexPathForRow:i inSection:sectionOpened]];
-    }
-    
-    /*
-     Create an array containing the index paths of the rows to delete: These correspond to the rows for each quotation in the previously-open section, if there was one.
-     */
-    NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-    
-    NSInteger previousOpenSectionIndex = self.openSectionIndex;
-    if (previousOpenSectionIndex != NSNotFound) {
-		
-		SectionInfo *previousOpenSection = [self.sectionInfoArray objectAtIndex:previousOpenSectionIndex];
-        previousOpenSection.open = NO;
-        [previousOpenSection.headerView toggleOpenWithUserAction:NO];
-        NSInteger countOfRowsToDelete = [previousOpenSection.category.items count];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
-        }
-    }
-    
-    // Style the animation so that there's a smooth flow in either direction.
-    UITableViewRowAnimation insertAnimation;
-    UITableViewRowAnimation deleteAnimation;
-    if (previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex) {
-        insertAnimation = UITableViewRowAnimationTop;
-        deleteAnimation = UITableViewRowAnimationBottom;
-    }
-    else {
-        insertAnimation = UITableViewRowAnimationBottom;
-        deleteAnimation = UITableViewRowAnimationTop;
-    }
-    
-    // Apply the updates.
-    [self.favourateTableView beginUpdates];
-    [self.favourateTableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:insertAnimation];
-    [self.favourateTableView deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:deleteAnimation];
-    [self.favourateTableView endUpdates];
-    self.openSectionIndex = sectionOpened;
-    
-}
-
-
--(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
-    
-    /*
-     Create an array of the index paths of the rows in the section that was closed, then delete those rows from the table view.
-     */
-	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:sectionClosed];
-	
-    sectionInfo.open = NO;
-    NSInteger countOfRowsToDelete = [self.favourateTableView numberOfRowsInSection:sectionClosed];
-    
-    if (countOfRowsToDelete > 0) {
-        NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:sectionClosed]];
-        }
-        [self.favourateTableView deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:UITableViewRowAnimationTop];
-    }
-    self.openSectionIndex = NSNotFound;
-}
-
 
 @end

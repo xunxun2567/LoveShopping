@@ -9,6 +9,7 @@
 #import "Category.h"
 
 @implementation Category
+@synthesize collector;
 @synthesize title;
 @synthesize items;
 @end
