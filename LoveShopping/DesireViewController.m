@@ -15,6 +15,7 @@
 #import "Category.h"
 #import "BrandManager.h"
 #import "BrandGadget.h"
+#import "UIAsyncImageView.h"
 
 @interface FavorateItemCell : UITableViewCell {
 }
@@ -40,7 +41,6 @@
 -(void)parseFromItem:(Item *) item {
     [self.likeabilityLabel.layer setCornerRadius:6.0];
     [self.likeabilityLabel setClipsToBounds:YES];
-   
     [self.itemImageView.layer setBorderWidth:1.0];
     [self.itemImageView.layer setMasksToBounds:YES];
     [self.itemImageView.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
@@ -49,9 +49,16 @@
     self.brandImageView.image = [UIImage imageWithContentsOfFile:brand.logo];
     [self.brandImageView setContentMode: UIViewContentModeScaleAspectFit];
 
-    NSURL *imageURL = [NSURL URLWithString:item.image_url];
-    self.itemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
-    [self.itemImageView setContentMode: UIViewContentModeScaleAspectFit];
+    if ((UIAsyncImageView*) [self.contentView viewWithTag:999] == nil) {
+        UIAsyncImageView* asyncImage = [[[UIAsyncImageView alloc]
+                                     initWithFrame:self.itemImageView.frame] autorelease];
+        asyncImage.tag = 999;
+        [asyncImage loadImageFromURL:[NSURL URLWithString:item.image_url]];
+        [asyncImage.layer setBorderWidth:1.0];
+        [asyncImage.layer setMasksToBounds:YES];
+        [asyncImage.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        [self.contentView addSubview:asyncImage];
+    }
 
     self.priceLabel.text = item.price;
     self.likeabilityLabel.text = item.title;
