@@ -14,6 +14,8 @@
 
 +(void)start;
 
++(void)registerPopup:(UIView*)popup;
+
 +(void)switchToBrand;
 +(void)switchToItemView:(Brand*)brand;
 

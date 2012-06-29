@@ -22,6 +22,7 @@
 
 @synthesize brandScrollView;
 @synthesize pageController;
+@synthesize popupDesire;
 
 @synthesize activeBrand;
 
@@ -36,6 +37,10 @@
 
 -(IBAction)desireTouched:(id)sender {
     NSLog(@"Desire!");
+    
+    BOOL desireViewHidden = [popupDesire isHidden];
+    [popupDesire setHidden:!desireViewHidden];
+    
 }
 
 -(IBAction)browseTouched:(id)sender {
@@ -88,6 +93,9 @@
 
 -(void)viewDidLoad  {
     [super viewDidLoad];
+    
+    [ViewSwitcher registerPopup:popupDesire];
+
     
     visibleBrands = [[BrandManager defaultManager] allVisibleBrands];
     int pages = ceil([visibleBrands count] / BRAND_PAGE_SIZE);

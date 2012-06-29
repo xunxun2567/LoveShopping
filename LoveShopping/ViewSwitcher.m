@@ -50,14 +50,10 @@ UITabBarController* mainTabBarController;
     aboutViewController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"搜索品牌" image:nil tag:3];
     [aboutViewController.tabBarItem setImage:[UIImage imageNamed:@"logo4.png"]];
     
-  //  [mainTabBarController.tabBar setBackgroundColor:[UIColor redColor]];
-
     [mainTabBarController addChildViewController:aboutViewController];
         
     mainWindow.rootViewController = mainTabBarController;
-    
-//    tabbar_controller = [[UITabBarController alloc]init];
-//    [tabbar_controller.tabBar setBackgroundColor:[UIColor redColor]];
+    [mainWindow addSubview:mainViewController.popupDesire];
     
    
 
@@ -66,8 +62,14 @@ UITabBarController* mainTabBarController;
 
     [ViewSwitcher switchToItemView:nil];
     [ViewSwitcher switchToBrand];
-    
         
+}
+
++(void)registerPopup:(UIView*)popup {
+    NSLog(@"Popup: %@", popup);
+    [popup removeFromSuperview];
+   
+    [mainWindow.rootViewController.view addSubview:popup];
 }
 
 +(void)switchToBrand   {

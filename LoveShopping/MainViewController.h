@@ -14,6 +14,7 @@
     Brand* activeBrand;
 }
 
+@property (nonatomic, strong) IBOutlet UIView* popupDesire;
 @property (nonatomic, strong) IBOutlet UIView* brandView;
 @property (nonatomic, strong) IBOutlet UIView* itemView;
 @property (strong, nonatomic) UIScrollView* brandScrollView;
